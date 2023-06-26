@@ -1,0 +1,43 @@
+{
+  "expo": {
+    "name": "American Medical Associates",
+    "slug": "American_Medical_Associates",
+    "version": "1.12.2",
+    "orientation": "portrait",
+    "icon": "./assets/icon.png",
+    "owner": "american_medical_associates",
+    "splash": {
+      "image": "./assets/splash.png",
+      "resizeMode": "contain",
+      "backgroundColor": "#ffffff"
+    },
+    "updates": {
+      "fallbackToCacheTimeout": 0,
+      "url": "https://u.expo.dev/bad11e83-7587-4cbb-8b9c-01b65156c06b"
+    },
+    "assetBundlePatterns": [
+      "**/*"
+    ],
+    "ios": {
+      "supportsTablet": true,
+      "bundleIdentifier": "com.americanmedicalassociatesaz"
+    },
+    "android": {
+      "adaptiveIcon": {
+        "foregroundImage": "./assets/adaptive-icon.png",
+        "backgroundColor": "#FFFFFF"
+      }
+    },
+    "web": {
+      "favicon": "./assets/favicon.png"
+    },
+    "runtimeVersion": {
+      "policy": "sdkVersion"
+    },
+    "extra": {
+      "eas": {
+        "projectId": "bad11e83-7587-4cbb-8b9c-01b65156c06b"
+      }
+    }
+  }
+}
