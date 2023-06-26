@@ -5,6 +5,7 @@
     "version": "1.12.2",
     "orientation": "portrait",
     "icon": "./assets/icon.png",
+    "owner": "american_medical_associates",
     "splash": {
       "image": "./assets/splash.png",
       "resizeMode": "contain",
