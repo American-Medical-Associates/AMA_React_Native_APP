@@ -1,4 +1,5 @@
-import React, { useEffect, useState } from "react";
+// THIS IS THE CLEANED UP CODE FOR THE SETTINGS BUTTON FROM GPT 3.5
+import React from "react";
 import {
   StyleSheet,
   Text,
@@ -12,6 +13,7 @@ import {
   KeyboardAvoidingView,
   Dimensions,
 } from "react-native";
+
 export default function SettingsButton({
   setting,
   onPressTrue,
@@ -44,3 +46,52 @@ export default function SettingsButton({
     </TouchableOpacity>
   );
 }
+
+// THIS IS THE ORIGINAL CODE FOR THE SETTINGS BUTTON
+
+// import React, { useEffect, useState } from "react";
+// import {
+//   StyleSheet,
+//   Text,
+//   Button,
+//   View,
+//   FlatList,
+//   Animated,
+//   TextInput,
+//   Switch,
+//   TouchableOpacity,
+//   KeyboardAvoidingView,
+//   Dimensions,
+// } from "react-native";
+// export default function SettingsButton({
+//   setting,
+//   onPressTrue,
+//   onPressFalse,
+//   text,
+//   width,
+// }) {
+//   return (
+//     <TouchableOpacity onPress={setting ? onPressTrue : onPressFalse}>
+//       <View
+//         style={{
+//           marginVertical: 5,
+//           marginHorizontal: 20,
+//           borderRadius: 20,
+//           width: width,
+//           backgroundColor: setting ? "#0008ff" : "#A9A9A9",
+//         }}
+//       >
+//         <Text
+//           style={{
+//             textAlign: "center",
+//             fontSize: 20,
+//             padding: 2,
+//             color: setting ? "#ffffff" : "#000000",
+//           }}
+//         >
+//           {text}
+//         </Text>
+//       </View>
+//     </TouchableOpacity>
+//   );
+// }
