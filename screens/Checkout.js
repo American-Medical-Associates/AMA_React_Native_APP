@@ -88,11 +88,6 @@ const Checkout = () => {
     try {
       if (company !== null) {
         setScanGiftCard(false);
-        // searchPatientByGiftCardNumber({
-        //   giftCardNumber: data,
-        //   company: company,
-        //   patientArray: setPatient,
-        // }).then(() => {
         if (
           patient == null ||
           patient == undefined ||
@@ -212,165 +207,6 @@ const Checkout = () => {
                   marginBottom: 50,
                 }}
               >
-                {/* {patient !== null && patient !== undefined && (
-                  <FlatList
-                    data={patient}
-                    bounces={false}
-                    style={{ width: "90%" }}
-                    renderItem={({ item, index }) => {
-                      return (
-                        <View
-                          style={{
-                            flex: 1,
-                            flexDirection: "column",
-                            marginVertical: 10,
-                            alignItems: "center",
-                          }}
-                        >
-                          <Text
-                            style={{
-                              marginVertical: 10,
-                              fontSize: 20,
-                              fontWeight: "bold",
-                              color: "#1F52ED",
-                            }}
-                          >
-                            First Name:
-                          </Text>
-                          <Text style={{ fontSize: 20 }}>{item.firstName}</Text>
-                          <Text
-                            style={{
-                              marginVertical: 10,
-                              fontSize: 20,
-                              fontWeight: "bold",
-                              color: "#1F52ED",
-                            }}
-                          >
-                            Last Name:
-                          </Text>
-                          <Text style={{ fontSize: 20 }}>{item.lastName}</Text>
-                          <Text
-                            style={{
-                              marginVertical: 10,
-                              fontSize: 20,
-                              fontWeight: "bold",
-                              color: "#1F52ED",
-                            }}
-                          >
-                            DOB:
-                          </Text>
-                          <Text style={{ fontSize: 20 }}>{item.DOB}</Text>
-                          <Text
-                            style={{
-                              marginVertical: 10,
-                              fontSize: 20,
-                              fontWeight: "bold",
-                              color: "#1F52ED",
-                            }}
-                          >
-                            Gift Card Number:
-                          </Text>
-                          <Text style={{ fontSize: 20 }}>
-                            {item.giftCardNumber}
-                          </Text>
-                          <Text
-                            style={{
-                              marginVertical: 10,
-                              fontSize: 20,
-                              fontWeight: "bold",
-                              color: "#1F52ED",
-                            }}
-                          >
-                            Original Value:
-                          </Text>
-                          <Text style={{ fontSize: 20 }}>
-                            {item.totalOnGiftCard}
-                          </Text>
-                          <Text
-                            style={{
-                              marginVertical: 10,
-                              fontSize: 20,
-                              fontWeight: "bold",
-                              color: "#1F52ED",
-                            }}
-                          >
-                            Current Balance:
-                          </Text>
-
-                          <Text style={{ fontSize: 20 }}>
-                            {item.currentAmountOnGiftCard}
-                          </Text>
-                          <Text
-                            style={{
-                              marginVertical: 10,
-                              fontSize: 20,
-                              fontWeight: "bold",
-                              color: "#1F52ED",
-                            }}
-                          >
-                            Date Was Purchased
-                          </Text>
-                          {item.dateGiftCardWasAdded != null && (
-                            <Text style={{ fontSize: 20 }}>
-                              {item.dateGiftCardWasAdded
-                                .toDate()
-                                .toDateString()}
-                            </Text>
-                          )}
-                          <MainButton
-                            text={!useGiftCard ? "Use Gift Card" : "Cancel"}
-                            onPress={() => {
-                              setUseGiftCard(!useGiftCard);
-                              console.log(useGiftCard);
-                            }}
-                          />
-
-                          {useGiftCard && (
-                            <View>
-                              <InputBox
-                                placeholder={"Amount to Used"}
-                                onChangeText={(text) => {
-                                  setAmountUsedOnGiftCard(text);
-                                }}
-                                value={amountUsedOnGiftCard}
-                                width={Dimensions.get("screen").width / 1.8}
-                                color={"#0008ff"}
-                                keyboardType={"numeric"}
-                              />
-                              <MainButton
-                                text={"Submit"}
-                                onPress={() => {
-                                  setUseGiftCard(false);
-                                  //subtract amountToUse from gift card
-
-                                  useAmountGiftCard({
-                                    email: item.email,
-                                    amountToUse:
-                                      item.currentAmountOnGiftCard -
-                                      amountUsedOnGiftCard,
-
-                                    company: company,
-                                    giftCardNumber: item.giftCardNumber,
-                                  });
-                                }}
-                              />
-                            </View>
-                          )}
-                          <MainButton
-                            text={"Clear Search"}
-                            onPress={() => {
-                              setPatient(null);
-                              setGiftCardInfo(null);
-                            }}
-                          />
-                        </View>
-                      );
-                    }}
-                    keyExtractor={(item, index) => index}
-                    listKey={1}
-                  />
-                )} */}
-
                 {giftCardInfo && (
                   <View>
                     <FlatList
@@ -424,7 +260,6 @@ const Checkout = () => {
                                   color={
                                     showPatientSearch ? "#E9E9E9" : "#025FC3"
                                   }
-                                  // style={{ marginRight: 10 }}
                                 />
                               </TouchableOpacity>
                             </View>
@@ -545,8 +380,6 @@ const Checkout = () => {
                                   text={"Submit"}
                                   onPress={() => {
                                     setUseGiftCard(false);
-                                    //subtract amountToUse from gift card
-
                                     useAmountGiftCard({
                                       email: item.email,
                                       amountToUse:
@@ -581,7 +414,6 @@ const Checkout = () => {
                   <View
                     style={{
                       margin: 10,
-                      //flex: 1,
                       justifyContent: "center",
                       alignItems: "center",
                     }}

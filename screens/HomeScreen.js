@@ -52,17 +52,9 @@ import {
 } from "../firebase";
 import { StatusBar } from "expo-status-bar";
 import { useNavigation } from "@react-navigation/native";
-// import SmallButton from "../components/SmallButton";
-
 import { useDrawerStatus } from "@react-navigation/drawer";
 import { FontAwesome } from "@expo/vector-icons";
 import { Octicons } from "@expo/vector-icons";
-// import AnitmatedCustomList from "../components/AnitmatedCustomList";
-// import { FlatList } from "react-native-gesture-handler";
-// import { useCallback } from "react/cjs/react.production.min";
-// import { set } from "react-native-reanimated";
-// import { backgroundColor } from "react-native/Libraries/Components/View/ReactNativeStyleAttributes";
-// import infoLog from "react-native/Libraries/Utilities/infoLog";
 import SegmentedControl from "@react-native-segmented-control/segmented-control";
 import MainButton from "../components/MainButton";
 import { useDispatch, useSelector } from "react-redux";
@@ -113,7 +105,6 @@ const HomeScreen = () => {
       headerLeft: () => (
         <View style={{ marginLeft: 20 }}>
           <TouchableOpacity onPress={() => navigation.toggleDrawer()}>
-            {/* <Avatar rounded source = {{uri: auth?.currentUser.photoURL}}/> */}
             <FontAwesome name="bars" size={30} color="black" />
           </TouchableOpacity>
         </View>
@@ -123,7 +114,6 @@ const HomeScreen = () => {
           <TouchableOpacity
             onPress={() => navigation.navigate("User Options Screen")}
           >
-            {/* <Avatar rounded source = {{uri: auth?.currentUser.photoURL}}/> */}
             <Octicons name="person" size={30} color="black" />
           </TouchableOpacity>
         </View>
@@ -143,36 +133,16 @@ const HomeScreen = () => {
       );
     }
   };
-  // const updateProductSwitch = () => {
-  //   if (isEnabled) return null;
-  //   else return updateProduct();
-  // };
   useEffect(() => {
     onSnapshot(doc(db, "users", auth.currentUser.email), (doc) => {
-      // setCompanyDB(doc.get("company"));
-
       dispatch(setCompany(doc.get("company")));
       setCompanyDB(doc.get("company"));
-      // dispatch(setCompany(data.company));
-      // setCompanyDB(data.company);
-      // console.log("aa " + companyDB);
-      // dispatch(setIsAuthUser(data.isAuthUser));
-      // setIsAuthUserLocal(data.isAuthUser);
-      // console.log(isAuthUser);
     });
   }, [refresh]);
   useEffect(() => {
     onSnapshot(doc(db, "users", auth.currentUser.email), (doc) => {
-      // setCompanyDB(doc.get("company"));
-
-      // dispatch(setCompany(doc.get("company")));
-      // setCompanyDB(doc.get("company"));
-      //dispatch(setCompany(data.company));
-      // setCompanyDB(data.company);
-      // console.log("aa " + companyDB);
       dispatch(setIsAuthUser(doc.get("isAuthUser")));
       setIsAuthUserLocal(doc.get("isAuthUser"));
-      // console.log(isAuthUser);
     });
   }, [refresh]);
   const ShowAuthSettings = () => {
@@ -212,17 +182,6 @@ const HomeScreen = () => {
             selectedCompany={selectedCompany}
             companyTextLong={"Vitalize Infusion"}
           />
-          {/* <CompanyButton
-            companyTextShort={"VIC"}
-            onPress={() => {
-              setSelectedCompany("Vitalize Infusion");
-            }}
-            onPressNull={() => {
-              setSelectedCompany(null);
-            }}
-            selectedCompany={selectedCompany}
-            companyTextLong={"Vitalize Infusion"}
-          /> */}
         </View>
       );
     }
@@ -280,32 +239,6 @@ const HomeScreen = () => {
     }
   }, [isAuthUser, selectedCompany, showOfficeEquipment]);
 
-  // useEffect(() => {
-  //   try {
-  //     const getData = onSnapshot(
-  //       query(
-  //         collection(db, "companys", companyDB, "products"),
-  //         orderBy("timestamp", "desc")
-  //       ),
-  //       (querySnapshot) => {
-  //         const products = [];
-  //         querySnapshot.forEach((snap) => {
-  //           products.push(snap.data());
-  //           // key: snap.id;
-  //         });
-  //         // console.log(products);
-  //         setProducts(products);
-  //         setLoading(true);
-  //       }
-  //     );
-
-  //     return () => {
-  //       getData();
-  //     };
-  //   } catch (e) {
-  //     console.log(e);
-  //   }
-  // }, [companyDB, showOfficeEquipment, refresh]);
   useEffect(() => {
     if (showOfficeEquipment == true) {
       setAnyItems("office_equipment");
@@ -336,12 +269,7 @@ const HomeScreen = () => {
       <View style={styles.container}>
         <View style={styles.container2}>
           <View style={{ flex: 1 }}>
-            <View
-              // Layout={Layout}
-              // entering={FadeInDown}
-              // exiting={FadeInUp}
-              style={{ alignItems: "center", flex: 1 }}
-            >
+            <View style={{ alignItems: "center", flex: 1 }}>
               <View style={{ flex: 0.1, flexDirection: "row" }}>
                 <View
                   style={{
@@ -443,7 +371,6 @@ const HomeScreen = () => {
                               const productDetails = [];
 
                               productDetails.push(doc.data());
-                              // key: snap.id;
                               setProductDetails(productDetails),
                                 setLoading(true);
                               console.log("this is doc data:", productDetails);
@@ -598,12 +525,10 @@ const HomeScreen = () => {
             <View
               style={{
                 flex: 1,
-                // backgroundColor: "#C8C8C8",
                 borderRadius: 30,
                 marginBottom: 30,
               }}
             >
-              {/* <View style={{ flex: 1, margin: 10 }}> */}
               <LineChart
                 data={{
                   labels: graphLabelsX,
@@ -613,10 +538,8 @@ const HomeScreen = () => {
                     },
                   ],
                 }}
-                width={Dimensions.get("screen").width / 1.45} // from react-native
+                width={Dimensions.get("screen").width / 1.45}
                 height={Dimensions.get("screen").height / 2}
-                // yAxisLabel="$"
-                // yAxisSuffix="k"
                 yAxisInterval={1} // optional, defaults to 1
                 chartConfig={{
                   backgroundColor: "#D6D3D6",
@@ -642,12 +565,9 @@ const HomeScreen = () => {
                   borderRadius: 16,
                 }}
               />
-
-              {/* </View> */}
               <View
                 style={{
                   flex: 1,
-                  // backgroundColor: "#C8C8C8",
                   flexDirection: "row",
                   borderRadius: 20,
                   marginTop: 15,
@@ -789,10 +709,6 @@ const HomeScreen = () => {
                     await setSelectedIndex(
                       event.nativeEvent.selectedSegmentIndex
                     );
-                    // const  updateGraph = () => {
-
-                    // };
-                    // updateGraph();
                   }}
                 />
               </View>
@@ -800,7 +716,6 @@ const HomeScreen = () => {
             <View
               style={{
                 flex: 0.5,
-                // backgroundColor: "purple",
                 flexDirection: "row",
               }}
             >
@@ -812,32 +727,12 @@ const HomeScreen = () => {
                   flex: 1,
                 }}
               >
-                {/* <LinearGradient
-                colors={["#BA40BE", "#3E31BB"]}
-                style={{ flex: 1, borderRadius: 30 }}
-              > */}
                 <FlatList
                   data={productDetails}
                   renderItem={({ item }) => {
-                    const yo = () => {};
-                    //setUpdateProductDescription(item.decription);
-                    const update = () => {
-                      //   setDoc(
-                      //     doc(db, "products", item.id),
-                      //     {
-                      //       // type_of_barcode: type,
-                      //       barcode: updateProductBarcode,
-                      //       // id: data,
-                      //       product: updateProductName,
-                      //       quantity: updateProductQuantity,
-                      //       decription: updateProductDescription,
-                      //       company: updateProductCompany,
-                      //       timestamp: serverTimestamp(),
-                      //     },
-                      //     { merge: true }
-                      //     // console.log("updated fields")
-                      //   );
-                    };
+                    // const yo = () => {};
+                    // const update = () => {
+                    // };
                     const toggleToEditProduct = () => {
                       if (isEnabled)
                         return (
@@ -846,7 +741,6 @@ const HomeScreen = () => {
                               <View style={{ flexDirection: "row" }}>
                                 <View
                                   style={{
-                                    //  backgroundColor: "red",
                                     flex: 1,
                                   }}
                                 >
@@ -876,7 +770,6 @@ const HomeScreen = () => {
                                 </View>
                                 <View
                                   style={{
-                                    // backgroundColor: "blue",
                                     flex: 0.2,
                                     justifyContent: "center",
                                     alignItems: "center",
@@ -887,7 +780,6 @@ const HomeScreen = () => {
                                       flex: 1,
                                       flexDirection: "row-reverse",
                                       alignSelf: "center",
-                                      // backgroundColor: "blue",
                                     }}
                                   >
                                     <Switch
@@ -926,54 +818,27 @@ const HomeScreen = () => {
                                           item.id
                                         ),
                                         {
-                                          // type_of_barcode: type,
-                                          // barcode: updateProductBarcode,
-                                          // id: data,
-                                          // quantity: updateProductQuantity,
                                           product: updateProductName,
                                           decription: updateProductDescription,
                                           company: updateProductCompany,
                                           timestamp: serverTimestamp(),
                                         },
                                         { merge: true }
-                                        // console.log("updated fields")
                                       );
                                     }}
                                     buttonWidth={90}
                                   ></MainButton>
-
-                                  {/* <Text style={styles.quanitiyDescription}>
-                                    Quantity:<Text>{item.quantity}</Text>
-                                  </Text> */}
                                   <Text>{item.quanitiy}</Text>
-                                  {/* <TextInput
-                                    style={
-                                      styles.descriptionProductQuantityTextInput
-                                    }
-                                    placeholder="Quantity"
-                                    type="Product Quantity"
-                                    onChangeText={(text) =>
-                                      setUpdateProductQuantity(text)
-                                    }
-                                  ></TextInput> */}
                                 </View>
                               </View>
                             </View>
                             <View
                               style={{
-                                // backgroundColor: "blue",
                                 justifyContent: "flex-start",
                                 alignItems: "center",
                                 flex: 2,
                               }}
                             >
-                              {/* <Text
-                                style={{
-                                  fontSize: 18,
-                                  paddingHorizontal: 30,
-                                  textAlign: "center",
-                                }}
-                              > */}
                               <TextInput
                                 style={
                                   styles.descriptionProductDecriptionTextInput
@@ -984,8 +849,6 @@ const HomeScreen = () => {
                                   setUpdateProductDescription(text)
                                 }
                               ></TextInput>
-                              {/* {item.decription}
-                              </Text> */}
                             </View>
                           </View>
                         );
@@ -1000,7 +863,6 @@ const HomeScreen = () => {
                               <View style={{ flexDirection: "row" }}>
                                 <View
                                   style={{
-                                    //  backgroundColor: "red",
                                     flex: 1,
                                   }}
                                 >
@@ -1016,7 +878,6 @@ const HomeScreen = () => {
                                 </View>
                                 <View
                                   style={{
-                                    // backgroundColor: "blue",
                                     flex: 0.2,
                                     justifyContent: "center",
                                   }}
@@ -1026,7 +887,6 @@ const HomeScreen = () => {
                                       flex: 1,
                                       flexDirection: "row",
                                       alignSelf: "center",
-                                      // backgroundColor: "blue",
                                     }}
                                   >
                                     <Text
@@ -1061,7 +921,6 @@ const HomeScreen = () => {
                             </View>
                             <View
                               style={{
-                                // backgroundColor: "blue",
                                 justifyContent: "flex-start",
                                 alignItems: "center",
                                 flex: 2,
@@ -1086,12 +945,10 @@ const HomeScreen = () => {
                   keyExtractor={(item, index) => index}
                   showsVerticalScrollIndicator={false}
                 />
-                {/* </LinearGradient> */}
               </View>
             </View>
           </View>
         </View>
-        {/* <StatusBar style="auto" /> */}
       </View>
     </KeyboardAvoidingView>
   );
@@ -1101,8 +958,6 @@ export default HomeScreen;
 
 const styles = StyleSheet.create({
   container: {
-    // justifyContent: "center",
-    // alignItems: "center",
     flex: 1,
     flexDirection: "column",
     backgroundColor: "#DFDBDBEC",
@@ -1112,7 +967,6 @@ const styles = StyleSheet.create({
     flexDirection: "row",
   },
   item: {
-    // backgroundColor: "#8A6EBED0",
     backgroundColor: "#F1F1F1",
     padding: 20,
     marginVertical: 10,
@@ -1138,7 +992,6 @@ const styles = StyleSheet.create({
     fontSize: 38,
     alignSelf: "center",
     fontWeight: "bold",
-    // paddingLeft: 50,
   },
   quanitiyDescription: {
     alignSelf: "center",
@@ -1148,23 +1001,18 @@ const styles = StyleSheet.create({
   companyDescription: {
     fontSize: 20,
     alignSelf: "center",
-    // paddingLeft: 35,
   },
   barcodeDescription: {
     justifyContent: "center",
     alignSelf: "center",
     color: "#5A5858AF",
     fontSize: 15,
-    // paddingLeft: 70,
   },
   editSwitch: { alignSelf: "center" },
   descriptionProductTitleTextInput: {
     borderRadius: 50,
-    // height: 65,
-    // width: 300,
     borderColor: "#ADAFAF",
     borderWidth: 2,
-    // marginBottom: 20,
     paddingHorizontal: 10,
     backgroundColor: "#C7C7C74D",
     fontSize: 38,
@@ -1173,8 +1021,6 @@ const styles = StyleSheet.create({
   },
   descriptionProductCompanyTextInput: {
     borderRadius: 50,
-    // height: 65,
-    // width: 300,
     borderColor: "#ADAFAF",
     borderWidth: 2,
     marginTop: 5,
@@ -1187,11 +1033,8 @@ const styles = StyleSheet.create({
 
   descriptionProductBarcodeTextInput: {
     borderRadius: 50,
-    // height: 65,
-    // width: 300,
     borderColor: "#ADAFAF",
     borderWidth: 2,
-    // marginBottom: 20,
     paddingHorizontal: 10,
     backgroundColor: "#C7C7C74D",
     fontSize: 15,
@@ -1199,11 +1042,8 @@ const styles = StyleSheet.create({
   },
   descriptionProductQuantityTextInput: {
     borderRadius: 50,
-    // height: 65,
-    // width: 300,
     borderColor: "#ADAFAF",
     borderWidth: 2,
-    // marginBottom: 20,
     paddingHorizontal: 10,
     backgroundColor: "#C7C7C74D",
     fontSize: 20,
@@ -1212,11 +1052,8 @@ const styles = StyleSheet.create({
   },
   descriptionProductDecriptionTextInput: {
     borderRadius: 50,
-    // height: 65,
-    // width: 300,
     borderColor: "#ADAFAF",
     borderWidth: 2,
-    // marginBottom: 20,
     paddingHorizontal: 10,
     backgroundColor: "#C7C7C74D",
     fontSize: 15,
@@ -1224,8 +1061,4 @@ const styles = StyleSheet.create({
     fontWeight: "bold",
     marginRight: 70,
   },
-  // toDo: {
-  //   textAlign: "center",
-  //   fontSize: 20,
-  // },
 });

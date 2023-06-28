@@ -94,7 +94,6 @@ const HomeScreenPhone = () => {
       headerLeft: () => (
         <View style={{ marginLeft: 20 }}>
           <TouchableOpacity onPress={() => navigation.toggleDrawer()}>
-            {/* <Avatar rounded source = {{uri: auth?.currentUser.photoURL}}/> */}
             <FontAwesome name="bars" size={30} color="black" />
           </TouchableOpacity>
         </View>
@@ -104,7 +103,6 @@ const HomeScreenPhone = () => {
           <TouchableOpacity
             onPress={() => navigation.navigate("User Options Screen")}
           >
-            {/* <Avatar rounded source = {{uri: auth?.currentUser.photoURL}}/> */}
             <Octicons name="person" size={30} color="black" />
           </TouchableOpacity>
         </View>
@@ -125,16 +123,8 @@ const HomeScreenPhone = () => {
   useEffect(() => {
     try {
       onSnapshot(doc(db, "users", auth.currentUser.email), (doc) => {
-        // setCompanyDB(doc.get("company"));
-
         dispatch(setCompany(doc.get("company")));
         setCompanyDB(doc.get("company"));
-        // dispatch(setCompany(data.company));
-        // setCompanyDB(data.company);
-        // console.log("aa " + companyDB);
-        // dispatch(setIsAuthUser(data.isAuthUser));
-        // setIsAuthUserLocal(data.isAuthUser);
-        // console.log(isAuthUser);
       });
     } catch (e) {
       alert(e);
@@ -155,13 +145,6 @@ const HomeScreenPhone = () => {
   useEffect(() => {
     try {
       onSnapshot(doc(db, "users", auth.currentUser.email), (doc) => {
-        // setCompanyDB(doc.get("company"));
-
-        // dispatch(setCompany(doc.get("company")));
-        // setCompanyDB(doc.get("company"));
-        //dispatch(setCompany(data.company));
-        // setCompanyDB(data.company);
-        // console.log("aa " + companyDB);
         dispatch(setIsAuthUser(doc.get("isAuthUser")));
         setIsAuthUserLocal(doc.get("isAuthUser"));
         console.log(doc.get("isAuthUser"));
@@ -169,7 +152,6 @@ const HomeScreenPhone = () => {
     } catch (e) {
       alert(e);
     }
-    // console.log(isAuthUser);
   }, [refresh]);
   useEffect(() => {
     try {
@@ -223,17 +205,6 @@ const HomeScreenPhone = () => {
             selectedCompany={selectedCompany}
             companyTextLong={"Vitalize Infusion"}
           />
-          {/* <CompanyButton
-            companyTextShort={"VIC"}
-            onPress={() => {
-              setSelectedCompany("Vitalize Infusion");
-            }}
-            onPressNull={() => {
-              setSelectedCompany(null);
-            }}
-            selectedCompany={selectedCompany}
-            companyTextLong={"Vitalize Infusion"}
-          /> */}
         </View>
       );
     }
@@ -296,12 +267,7 @@ const HomeScreenPhone = () => {
   };
   return (
     <View style={{ flex: 1 }}>
-      <View
-        // Layout={Layout}
-        // entering={FadeInDown}
-        // exiting={FadeInUp}
-        style={{ alignItems: "center", flex: 1 }}
-      >
+      <View style={{ alignItems: "center", flex: 1 }}>
         <View style={{ flex: 0.1, flexDirection: "row" }}>
           <View
             style={{
@@ -417,13 +383,11 @@ export default HomeScreenPhone;
 
 const styles = StyleSheet.create({
   item: {
-    // backgroundColor: "#8A6EBED0",
     backgroundColor: "#DBDBDBB4",
     padding: 20,
     marginVertical: 10,
     paddingHorizontal: 20,
     width: Dimensions.get("screen").width / 1.2,
-    // height: 70,
     borderRadius: 40,
     justifyContent: "center",
     alignItems: "center",
