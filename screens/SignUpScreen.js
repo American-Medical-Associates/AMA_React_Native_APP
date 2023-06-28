@@ -12,47 +12,20 @@ import {
   KeyboardAvoidingView,
   Alert,
 } from "react-native";
-import {
-  getAuth,
-  createUserWithEmailAndPassword,
-  setDoc,
-  doc,
-  serverTimestamp,
-} from "firebase/firestore";
-import { getAuth } from "firebase/auth";
+import { getAuth, createUserWithEmailAndPassword } from "firebase/auth";
+import { setDoc, doc, serverTimestamp } from "firebase/firestore";
 import { Picker } from "@react-native-picker/picker";
 import { auth, db } from "../firebase";
-import React, { useLayoutEffect, useState, useEffect } from "react";
 import { useNavigation } from "@react-navigation/native";
-import { use } from "@react-navigation/drawer";
-import { FontAwesome } from "@expo/vector-icons";
-import { Octicons } from "@expo/vector-icons";
-import { useDrawerStatus } from "@react-navigation/drawer";
-import HomeScreen from "./HomeScreen";
-import { NavigationContainer, DrawerActions } from "@react-navigation/native";
 import MainButton from "../components/MainButton";
-import InputBox from "../components/InputBox";
 
 const SignUp = () => {
   const navigation = useNavigation();
   const [email, setEmail] = useState(null);
-  const [companyEmail, setCompanyEmail] = useState(null);
   const [password, setPassword] = useState(null);
   const [password2, setPassword2] = useState(null);
-  const [company, setCompany] = useState(null);
-  const [numberOfEmployees, setNumberOfEmployees] = useState(null);
-  const [phoneNumber, setPhoneNumber] = useState(null);
-  const [companyPhoneNumber, setCompanyPhoneNumber] = useState(null);
-  const [user, setUser] = useState(null);
   const [fullName, setFullName] = useState(null);
-  const [companyAdress1, setCompanyAddress1] = useState(null);
-  const [companyAdress2, setCompanyAddress2] = useState(null);
-  const [companyAdressCity, setCompanyAddressCity] = useState(null);
-  const [companyAdressState, setCompanyAddressState] = useState(null);
-  const [companyAdressZipCode, setCompanyAddressZipCode] = useState(null);
-  const dateInMM = Date.now();
   const [selectedCompany, setSelectedCompany] = useState("AMA");
-  const auth = getAuth();
 
   const PassordCheck = () => {
     if (password !== password2) {
@@ -62,13 +35,13 @@ const SignUp = () => {
     }
   };
 
-  const randomNumberCompanyId = Math.random() * 1000000 + 1;
-  const randomnumberString = randomNumberCompanyId.toString();
-
   const signup = () => {
+    const auth = getAuth();
     createUserWithEmailAndPassword(auth, email, password)
       .then(async (userCredential) => {
         const user = userCredential.user.uid;
+        const randomNumberCompanyId = Math.random() * 1000000 + 1;
+        const randomnumberString = randomNumberCompanyId.toString();
         try {
           await setDoc(
             doc(db, "users", auth.currentUser.email),
@@ -76,53 +49,33 @@ const SignUp = () => {
               fullName: fullName,
               company: selectedCompany,
               email: email.toLowerCase(),
-              phoneNumber: phoneNumber,
-              companyAdress1: companyAdress1,
               uid: user,
               isAuthUser: false,
               companyID: randomnumberString,
-              dateOfSignUpInMM: dateInMM,
+              dateOfSignUpInMM: Date.now(),
             },
             { merge: true }
           );
-        } catch (error) {
-          alert(error);
-          console.log(`I got an error ${error}`);
-        }
-      })
-      .then(async () => {
-        try {
           await setDoc(
             doc(db, "companys", selectedCompany),
             {
               company: selectedCompany,
-              phoneNumber: phoneNumber,
-              numberOfEmployees: numberOfEmployees,
-              numberOfEmployeesCurrentlySignedUp: 1,
-              companyAdress1: companyAdress1,
-              companyID: randomnumberString,
               dateOfSignUp: serverTimestamp(),
-              dateOfSignUpInMM: dateInMM,
+              dateOfSignUpInMM: Date.now(),
+            },
+            { merge: true }
+          );
+          await setDoc(
+            doc(db, "companys", selectedCompany, "address", "companyAdress1"),
+            {
+              address: "companyAdress1",
+              timestamp: serverTimestamp(),
             },
             { merge: true }
           );
         } catch (error) {
           alert(error);
           console.log(`I got an error ${error}`);
-        }
-      })
-      .then(async () => {
-        try {
-          await setDoc(
-            doc(db, "companys", selectedCompany, "address", companyAdress1),
-            {
-              address: companyAdress1,
-              timestamp: serverTimestamp(),
-            },
-            { merge: true }
-          );
-        } catch (e) {
-          alert(e);
         }
       })
       .catch((error) => {
@@ -176,71 +129,51 @@ const SignUp = () => {
               placeholderTextColor="#595959"
               style={styles.inputTitle}
               placeholder="Work Location Address"
-              type="description"
-              width={Dimensions.get("window").width / 1.3}
               onChangeText={(text) => {
                 setCompanyAddress1(text);
               }}
-            ></TextInput>
+            />
           </View>
 
           <TextInput
             placeholderTextColor="#595959"
             style={styles.inputTitle}
             placeholder="Full Name of User"
-            type="description"
             onChangeText={(text) => {
               setFullName(text);
             }}
             autoCapitalize="none"
-          ></TextInput>
+          />
           <TextInput
             placeholderTextColor="#595959"
             style={styles.inputTitle}
             placeholder="Work Email"
-            type="description"
             onChangeText={(text) => {
               setEmail(text);
             }}
             autoCapitalize="none"
-          ></TextInput>
-          <TextInput
-            placeholderTextColor="#595959"
-            style={styles.inputTitle}
-            placeholder="Phone Number"
-            type="description"
-            onChangeText={(text) => {
-              setPhoneNumber(text);
-            }}
-            autoCapitalize="none"
-          ></TextInput>
+          />
           <TextInput
             placeholderTextColor="#595959"
             style={styles.inputTitle}
             placeholder="Password"
-            type="description"
             onChangeText={(text) => {
               setPassword(text);
             }}
             autoCapitalize="none"
-          ></TextInput>
+          />
           <TextInput
             style={styles.inputTitle}
             placeholderTextColor="#595959"
             placeholder="Re-type Password"
-            type="description"
             onChangeText={(text) => {
               setPassword2(text);
             }}
             autoCapitalize="none"
-          ></TextInput>
+          />
           {PassordCheck()}
           <View style={{ flex: 1, marginBottom: 50 }}>
-            <MainButton
-              buttonWidth={250}
-              text="Sign Up"
-              onPress={signup}
-            ></MainButton>
+            <MainButton buttonWidth={250} text="Sign Up" onPress={signup} />
           </View>
         </View>
       </KeyboardAvoidingView>
