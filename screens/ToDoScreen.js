@@ -46,7 +46,7 @@ import {
 
 import { NavigationContainer, DrawerActions } from "@react-navigation/native";
 import DividerLine from "../components/DividerLine";
-import MainButton from "../components/MainButton";
+import MainButton from "../components/buttons/MainButton";
 import { useDispatch, useSelector } from "react-redux";
 import {
   selectCompany,
@@ -55,7 +55,7 @@ import {
   setTaskID,
 } from "../slices/globalSlice";
 
-import IconButton from "../components/IconButton";
+import IconButton from "../components/buttons/IconButton";
 import InputBox from "../components/InputBox";
 
 const ToDo = () => {

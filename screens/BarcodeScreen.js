@@ -39,7 +39,7 @@ import {
   UseExistingItemOnDb,
 } from "../firebase";
 import { collection, addDoc, setDoc, doc } from "firebase/firestore";
-import MainButton from "../components/MainButton";
+import MainButton from "../components/buttons/MainButton";
 import DividerLine from "../components/DividerLine";
 import { add, interpolate } from "react-native-reanimated";
 // import { getAdditionalUserInfo } from "firebase/auth";
@@ -49,10 +49,10 @@ import { add, interpolate } from "react-native-reanimated";
 import { useDispatch, useSelector } from "react-redux";
 import { selectCompany, selectIsAuthUser } from "../slices/globalSlice";
 import { Picker } from "@react-native-picker/picker";
-import CompanyButton from "../components/CompanyPickerButton";
+import CompanyButton from "../components/buttons/CompanyPickerButton";
 import InputBox from "../components/InputBox";
 import { async } from "@firebase/util";
-import SettingsButton from "../components/SettingsButton";
+import SettingsButton from "../components/buttons/SettingsButton";
 const BarcodeScreen = () => {
   const [hasPermission, setHasPermission] = useState(null);
   const [scanned, setScanned] = useState(true);

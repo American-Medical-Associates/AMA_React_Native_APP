@@ -11,7 +11,7 @@ import {
   productsFirebase,
   AddNewItemToDbManualy,
 } from "../firebase";
-import MainButton from "../components/MainButton";
+import MainButton from "../components/buttons/MainButton";
 
 const ManualItemEntryScreen = () => {
   const [barcode, setBarcode] = useState(null);

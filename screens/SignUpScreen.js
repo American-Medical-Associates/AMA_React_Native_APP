@@ -17,7 +17,7 @@ import { setDoc, doc, serverTimestamp } from "firebase/firestore";
 import { Picker } from "@react-native-picker/picker";
 import { auth, db } from "../firebase";
 import { useNavigation } from "@react-navigation/native";
-import MainButton from "../components/MainButton";
+import MainButton from "../components/buttons/MainButton";
 
 const SignUp = () => {
   const navigation = useNavigation();

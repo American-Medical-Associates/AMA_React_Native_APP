@@ -17,7 +17,7 @@ import {
 } from "react-native";
 import { useSelector } from "react-redux";
 import InputBox from "../components/InputBox";
-import MainButton from "../components/MainButton";
+import MainButton from "../components/buttons/MainButton";
 import { AddNewItemToDbManualy } from "../firebase";
 import { selectSelectedProduct } from "../slices/globalSlice";
 import { useNavigation } from "@react-navigation/native";

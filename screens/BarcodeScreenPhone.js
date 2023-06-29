@@ -35,7 +35,7 @@ import {
 } from "firebase/firestore";
 import { collection, addDoc, setDoc, doc } from "firebase/firestore";
 
-import MainButton from "../components/MainButton";
+import MainButton from "../components/buttons/MainButton";
 import DividerLine from "../components/DividerLine";
 import { add, interpolate } from "react-native-reanimated";
 
@@ -49,9 +49,9 @@ import {
   UseExistingItemOnDb,
 } from "../firebase";
 
-import CompanyButton from "../components/CompanyPickerButton";
+import CompanyButton from "../components/buttons/CompanyPickerButton";
 import InputBox from "../components/InputBox";
-import SettingsButton from "../components/SettingsButton";
+import SettingsButton from "../components/buttons/SettingsButton";
 
 const BarcodeScreenPhone = () => {
   const [showScannerIsInView, setShowScannerIsInView] = useState(true);

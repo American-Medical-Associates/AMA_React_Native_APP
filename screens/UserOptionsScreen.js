@@ -1,7 +1,7 @@
 // THIS IS THE CLEANED UP CODE FROM GPT 3.5
 import React, { useLayoutEffect } from "react";
 import { StyleSheet, Text, View, ScrollView, Dimensions } from "react-native";
-import MainButton from "../components/MainButton";
+import MainButton from "../components/buttons/MainButton";
 import { useNavigation } from "@react-navigation/native";
 import { getAuth, signOut } from "firebase/auth";
 import { auth } from "../firebase";

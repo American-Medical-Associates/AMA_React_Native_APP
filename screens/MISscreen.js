@@ -11,7 +11,7 @@ import React, { useState, useEffect } from "react";
 import InputBox from "../components/InputBox";
 import { Picker } from "@react-native-picker/picker";
 import DividerLine from "../components/DividerLine";
-import MainButton from "../components/MainButton";
+import MainButton from "../components/buttons/MainButton";
 import { addMIS, UseExistingItemOnDb } from "../firebase";
 
 import MISListItem from "../components/MISListItem";

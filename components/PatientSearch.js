@@ -11,7 +11,7 @@ import { useSelector, useDispatch } from "react-redux";
 import { Octicons } from "@expo/vector-icons";
 import { AntDesign } from "@expo/vector-icons";
 import InputBox from "./InputBox";
-import MainButton from "./MainButton";
+import MainButton from "./buttons/MainButton";
 import {
   selectCompany,
   setPatientDOB,

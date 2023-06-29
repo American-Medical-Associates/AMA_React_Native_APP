@@ -8,7 +8,7 @@ import {
 } from "react-native";
 import { Picker } from "@react-native-picker/picker";
 import DividerLine from "./DividerLine";
-import MainButton from "./MainButton";
+import MainButton from "./buttons/MainButton";
 import InputBox from "./InputBox";
 
 const MISListItem = ({

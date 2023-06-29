@@ -16,7 +16,7 @@ import {
 import React, { useLayoutEffect, useEffect, useState } from "react";
 import { EvilIcons } from "@expo/vector-icons";
 import { AntDesign } from "@expo/vector-icons";
-import MainButton from "../components/MainButton";
+import MainButton from "../components/buttons/MainButton";
 import { useDispatch, useSelector } from "react-redux";
 import {
   selectAllProducts,
@@ -27,8 +27,8 @@ import {
 import DividerLine from "../components/DividerLine";
 import { FontAwesome } from "@expo/vector-icons";
 import { Octicons } from "@expo/vector-icons";
-import CompanyButton from "../components/CompanyPickerButton";
-import SettingsButton from "../components/SettingsButton";
+import CompanyButton from "../components/buttons/CompanyPickerButton";
+import SettingsButton from "../components/buttons/SettingsButton";
 import {
   db,
   auth,

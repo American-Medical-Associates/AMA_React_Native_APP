@@ -36,7 +36,7 @@ import { FontAwesome5 } from "@expo/vector-icons";
 import InputBox from "../components/InputBox";
 import { Feather } from "@expo/vector-icons";
 import { AntDesign } from "@expo/vector-icons";
-import MainButton from "../components/MainButton";
+import MainButton from "../components/buttons/MainButton";
 
 const TodoTaskPage = () => {
   const company = useSelector(selectCompany);

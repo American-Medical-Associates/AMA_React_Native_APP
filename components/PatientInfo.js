@@ -1,7 +1,7 @@
 // THIS IS THE CLEANED UP PATIENT INFO COMPONENT FROM GPT 3.5
 import React, { useState, useEffect } from "react";
 import { View, Text, Dimensions, StyleSheet, Alert } from "react-native";
-import MainButton from "./MainButton";
+import MainButton from "./buttons/MainButton";
 import { BarCodeScanner } from "expo-barcode-scanner";
 import { selectCompany, setAllPatientInfo } from "../slices/globalSlice";
 import { useSelector, useDispatch } from "react-redux";

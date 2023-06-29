@@ -8,7 +8,7 @@ import {
   TouchableOpacity,
 } from "react-native";
 import React, { useState, useEffect } from "react";
-import MainButton from "../components/MainButton";
+import MainButton from "../components/buttons/MainButton";
 import { BarCodeScanner } from "expo-barcode-scanner";
 import {
   searchPatientByGiftCardNumber,
@@ -31,7 +31,7 @@ import Picker from "../components/Picker";
 import * as Haptics from "expo-haptics";
 import { Ionicons } from "@expo/vector-icons";
 import PatientSearch from "../components/PatientSearch";
-import BigSquareButton from "../components/BigSquareButton";
+import BigSquareButton from "../components/buttons/BigSquareButton";
 import { useNavigation } from "@react-navigation/native";
 
 //import hero icons

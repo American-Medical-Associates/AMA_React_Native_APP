@@ -56,13 +56,13 @@ import { useDrawerStatus } from "@react-navigation/drawer";
 import { FontAwesome } from "@expo/vector-icons";
 import { Octicons } from "@expo/vector-icons";
 import SegmentedControl from "@react-native-segmented-control/segmented-control";
-import MainButton from "../components/MainButton";
+import MainButton from "../components/buttons/MainButton";
 import { useDispatch, useSelector } from "react-redux";
 import { setCompany, setIsAuthUser } from "../slices/globalSlice";
 import DividerLine from "../components/DividerLine";
 
-import CompanyButton from "../components/CompanyPickerButton";
-import SettingsButton from "../components/SettingsButton";
+import CompanyButton from "../components/buttons/CompanyPickerButton";
+import SettingsButton from "../components/buttons/SettingsButton";
 
 const HomeScreen = () => {
   const ITEM_SIZE = 90 + 18 * 3;

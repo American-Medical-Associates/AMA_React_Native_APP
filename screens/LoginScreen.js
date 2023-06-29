@@ -17,7 +17,7 @@ import {
 } from "firebase/auth";
 import { useNavigation } from "@react-navigation/native";
 import { auth } from "../firebase";
-import MainButton from "../components/MainButton";
+import MainButton from "../components/buttons/MainButton";
 import InputBox from "../components/InputBox";
 
 export default function LoginScreen() {
