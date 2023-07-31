@@ -99,8 +99,8 @@ function DrawerNavigator() {
       {/* <Drawer.Screen name="ToDo" component={ToDo} /> */}
       {/* {ShowPhoneVersionBarcode()} */}
       {/* <Drawer.Screen name="Add Item" component={ManualItemEntryScreen} /> */}
-      {/* <Drawer.Screen name="VMS MIS" component={MISscreen} />
-      <Drawer.Screen name="Patients" component={Patients} /> */}
+      <Drawer.Screen name="VMS MIS" component={MISscreen} />
+      {/* <Drawer.Screen name="Patients" component={Patients} /> */}
       <Drawer.Screen name="Checkout" component={Checkout} />
     </Drawer.Navigator>
   );
