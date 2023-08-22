@@ -2636,7 +2636,7 @@ const MISListItem = ({
   useEffect(() => {
     //match picker value with listofitemposibiltys and if it matches set the product
 
-    console.log("pickerValue", pickerValue);
+    // console.log("pickerValue", pickerValue);
     listOfitemPosibiltys.map((item) => {
       if (item.product === pickerValue) {
         setProductLocal(item);

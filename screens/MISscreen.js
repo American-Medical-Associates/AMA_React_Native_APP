@@ -94,7 +94,7 @@ const MISscreen = () => {
   var month = new Date().getMonth() + 1;
   var day = new Date().getDate();
   var hour = new Date().getHours();
-  console.log("kkkk", allProducts);
+  // console.log("kkkk", allProducts);
 
   const amaProvider = () => {
     if (typeOfRefural == "AMA Provider") {
