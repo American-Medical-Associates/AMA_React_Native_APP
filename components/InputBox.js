@@ -10,6 +10,7 @@ export function InputBox({
   onChangeText,
   value,
   keyboardType,
+  style,
 }) {
   return (
     <View style={styles.container}>
@@ -20,6 +21,7 @@ export function InputBox({
             width: width,
             borderColor: color,
           },
+          style,
         ]}
         placeholder={placeholder}
         type={type}

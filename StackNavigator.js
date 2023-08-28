@@ -15,13 +15,13 @@ import ManualItemEntryScreen from "./screens/ManualItemEntryScreen";
 import HomeScreenPhone from "./screens/HomeScreenPhone";
 import BarcodeScreenPhone from "./screens/BarcodeScreenPhone";
 import MISscreen from "./screens/MISscreen";
-import AMAMisScreen from "./screens/AMAMisScreen";
 import TodoTaskPage from "./screens/ToDoTaskScreen";
 import InventoryItemEdit from "./screens/InventoryItemEdit";
 import Patients from "./screens/PatientsScreen";
 import Checkout from "./screens/Checkout";
 import { createStackNavigator } from "@react-navigation/stack";
 import AllGiftCards from "./screens/AllGiftCards";
+import IntMedMis from "./screens/IntMedMis";
 const Stack = createNativeStackNavigator();
 const Drawer = createDrawerNavigator();
 const BarcodeStack = createStackNavigator();
@@ -101,7 +101,7 @@ function DrawerNavigator() {
       {/* {ShowPhoneVersionBarcode()} */}
       {/* <Drawer.Screen name="Add Item" component={ManualItemEntryScreen} /> */}
       <Drawer.Screen name="VMS MIS" component={MISscreen} />
-      <Drawer.Screen name="AMA MIS" component={AMAMisScreen} />
+      <Drawer.Screen name="Internal Medicine MIS" component={IntMedMis} />
       {/* <Drawer.Screen name="Patients" component={Patients} /> */}
       <Drawer.Screen name="Checkout" component={Checkout} />
     </Drawer.Navigator>
