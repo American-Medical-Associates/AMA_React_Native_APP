@@ -40,7 +40,7 @@ const IntMedMis = () => {
           width={300}
           value={year}
           onChangeText={(text) => setYear(text)}
-          placeholder={"Please Enter the Year"}
+          placeholder={"Please Enter the Year (Ex: 2023)"}
         />
         <InputBox
           required={true}
@@ -48,7 +48,7 @@ const IntMedMis = () => {
           width={300}
           value={month}
           onChangeText={(text) => setMonth(text)}
-          placeholder={"Please Enter the Month"}
+          placeholder={"Please Enter the Month (Ex: January)"}
         />
         <InputBox
           required={true}
@@ -56,7 +56,7 @@ const IntMedMis = () => {
           width={300}
           value={day}
           onChangeText={(text) => setDay(text)}
-          placeholder={"Please Enter the Day"}
+          placeholder={"Please Enter the Day (Ex: 29th"}
         />
         <InputBox
           required={true}
@@ -64,7 +64,7 @@ const IntMedMis = () => {
           width={300}
           value={provider}
           onChangeText={(text) => setProvider(text)}
-          placeholder={"Who was the Provider?"}
+          placeholder={"Who was the Provider? (Ex: Hailey)"}
         />
         <MainButton
           text={"Submit"}
@@ -84,6 +84,12 @@ const IntMedMis = () => {
               setRequiredProvider(true);
             } else {
               alert("Works Correctly!");
+              DailyInternalMedMis({
+                year: year,
+                month: month,
+                day: day,
+                provider: provider,
+              });
             }
           }}
         />
