@@ -22,7 +22,7 @@ import MainButton from "../components/buttons/MainButton";
 
 const IntMedMis = () => {
   // Changed the year to int(), test tomorrow to see if it works as intended.
-  const [year, setYear] = int(useState());
+  const [year, setYear] = useState(0);
   const [requiredYear, setRequiredYear] = useState(false);
   const [month, setMonth] = useState("");
   const [requiredMonth, setRequiredMonth] = useState(false);
