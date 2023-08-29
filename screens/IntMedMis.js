@@ -21,7 +21,8 @@ import MainButton from "../components/buttons/MainButton";
 // - Add a Submit Button (required)
 
 const IntMedMis = () => {
-  const [year, setYear] = useState("");
+  // Changed the year to int(), test tomorrow to see if it works as intended.
+  const [year, setYear] = int(useState());
   const [requiredYear, setRequiredYear] = useState(false);
   const [month, setMonth] = useState("");
   const [requiredMonth, setRequiredMonth] = useState(false);
