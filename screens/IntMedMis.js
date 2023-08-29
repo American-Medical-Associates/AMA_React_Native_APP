@@ -6,9 +6,6 @@ import Picker from "../components/Picker";
 
 //TODO:
 // - Connect to firebase and make sure it works
-// - Add a year input (required)
-// - Add a month input (required)
-// - Add a Day input (required)
 // - Add a Provider scroll wheel (required)
 // - Add a Location scroll wheel listing Chandler AZ, & Maricopa AZ (required)
 // - Add a Num of Patients input (required)
