@@ -90,6 +90,8 @@ const IntMedMis = () => {
                 month: month,
                 day: day,
                 provider: provider,
+              }).then(() => {
+                console.log("Test");
               });
             }
           }}
