@@ -22,6 +22,7 @@ import Checkout from "./screens/Checkout";
 import { createStackNavigator } from "@react-navigation/stack";
 import AllGiftCards from "./screens/AllGiftCards";
 import IntMedMis from "./screens/IntMedMis";
+import { styleProps } from "react-native-web/dist/cjs/modules/forwardedProps";
 const Stack = createNativeStackNavigator();
 const Drawer = createDrawerNavigator();
 const BarcodeStack = createStackNavigator();
@@ -100,7 +101,13 @@ function DrawerNavigator() {
       {/* <Drawer.Screen name="ToDo" component={ToDo} /> */}
       {/* {ShowPhoneVersionBarcode()} */}
       {/* <Drawer.Screen name="Add Item" component={ManualItemEntryScreen} /> */}
-      <Drawer.Screen name="VMS MIS" component={MISscreen} />
+      <Drawer.Screen
+        // options={({ navigation }) => ({
+        //   drawerItemStyle: { display: "none" },
+        // })}
+        name="VMS MIS"
+        component={MISscreen}
+      />
       <Drawer.Screen name="Internal Medicine MIS" component={IntMedMis} />
       {/* <Drawer.Screen name="Patients" component={Patients} /> */}
       <Drawer.Screen name="Checkout" component={Checkout} />

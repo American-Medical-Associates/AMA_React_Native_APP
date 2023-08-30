@@ -5,8 +5,7 @@ import { DailyInternalMedMis } from "../firebase";
 import MainButton from "../components/buttons/MainButton";
 
 //TODO:
-// - Connect to firebase and make sure it works
-// - Add a Provider scroll wheel (required)
+// - Outfill input for current date, allow user to change date if needed. Auto format
 // - Add a Location scroll wheel listing Chandler AZ, & Maricopa AZ (required)
 // - Add a Num of Patients input (required)
 // - Add a Num of New Patients input (required)
@@ -30,6 +29,10 @@ const IntMedMis = () => {
   const [requiredDay, setRequiredDay] = useState(false);
   const [provider, setProvider] = useState("");
   const [requiredProvider, setRequiredProvider] = useState(false);
+
+  // DO THIS TOMORROW!
+  // const date = new Date();
+  // const currentDate = date.toLocaleDateString();
 
   return (
     <ScrollView>
