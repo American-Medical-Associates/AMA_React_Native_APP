@@ -1,8 +1,9 @@
 import React, { useState, useEffect } from "react";
 import InputBox from "../components/InputBox";
-import { Dimensions, StyleSheet, View, ScrollView } from "react-native";
+import { Dimensions, StyleSheet, View, ScrollView, Text } from "react-native";
 import { DailyInternalMedMis } from "../firebase";
 import MainButton from "../components/buttons/MainButton";
+import LocationButton from "../components/buttons/LocationButton";
 
 //TODO:
 // - Outfill input for current date, allow user to change date if needed. Auto format
@@ -20,19 +21,20 @@ import MainButton from "../components/buttons/MainButton";
 // - Add a Submit Button (required)
 
 const IntMedMis = () => {
+  const date = new Date();
+  const formattedDate = `${
+    date.getMonth() + 1
+  }/${date.getDate()}/${date.getFullYear()}`;
+
+  const data = [{ value: "Chandler, AZ" }, { value: "Maricopa, AZ" }];
+
   // Changed the year to int(), test tomorrow to see if it works as intended.
-  const [year, setYear] = useState("");
-  const [requiredYear, setRequiredYear] = useState(false);
-  const [month, setMonth] = useState("");
-  const [requiredMonth, setRequiredMonth] = useState(false);
-  const [day, setDay] = useState("");
-  const [requiredDay, setRequiredDay] = useState(false);
+  const [currentDate, setCurrentDate] = useState(formattedDate);
+  const [requiredDate, setRequiredDate] = useState(false);
   const [provider, setProvider] = useState("");
   const [requiredProvider, setRequiredProvider] = useState(false);
-
-  // DO THIS TOMORROW!
-  // const date = new Date();
-  // const currentDate = date.toLocaleDateString();
+  const [location, setLocation] = useState("");
+  const [requiredLocation, setRequiredLocation] = useState(false);
 
   return (
     <ScrollView>
@@ -42,25 +44,8 @@ const IntMedMis = () => {
           required={true}
           style={styles.inputBox}
           width={300}
-          value={year}
-          onChangeText={(text) => setYear(text)}
-          placeholder={"Please Enter the Year (Ex: 2023)"}
-        />
-        <InputBox
-          required={true}
-          style={styles.inputBox}
-          width={300}
-          value={month}
-          onChangeText={(text) => setMonth(text)}
-          placeholder={"Please Enter the Month (Ex: January)"}
-        />
-        <InputBox
-          required={true}
-          style={styles.inputBox}
-          width={300}
-          value={day}
-          onChangeText={(text) => setDay(text)}
-          placeholder={"Please Enter the Day (Ex: 29th"}
+          value={currentDate}
+          onChangeText={(text) => setCurrentDate(text)}
         />
         <InputBox
           required={true}
@@ -70,31 +55,35 @@ const IntMedMis = () => {
           onChangeText={(text) => setProvider(text)}
           placeholder={"Who was the Provider? (Ex: Hailey)"}
         />
+        <Text style={styles.locationText}>Select your location</Text>
+        <LocationButton
+          value={location}
+          onSelect={setLocation}
+          style={styles.location}
+          data={data}
+        />
+
         <MainButton
           text={"Submit"}
           buttonWidth={250}
           onPress={() => {
-            if (year === "") {
-              alert("Please enter the current Year.");
-              setRequiredYear(true);
-            } else if (month === "") {
-              alert("Please enter the current Month.");
-              setRequiredMonth(true);
-            } else if (day === "") {
-              alert("Please enter the current Day.");
-              setRequiredDay(true);
+            if (currentDate === "") {
+              alert("Please enter the date. (EX: mm/dd/year)");
+              setRequiredDate(true);
             } else if (provider === "") {
               alert("Please enter the current Provider.");
               setRequiredProvider(true);
+            } else if (location === "") {
+              alert("Please select your location");
+              setRequiredLocation(true);
             } else {
-              alert("Works Correctly!");
+              alert("Successful Submission! Thank you!");
               DailyInternalMedMis({
-                year: year,
-                month: month,
-                day: day,
+                currentDate: currentDate,
                 provider: provider,
+                location: location,
               }).then(() => {
-                console.log("Test");
+                console.log("Submit Successful!");
               });
             }
           }}
@@ -112,6 +101,13 @@ const styles = StyleSheet.create({
   inputBox: {
     marginLeft: 5,
     height: 60,
+  },
+  locationText: {
+    flex: 1,
+    alignItems: "center",
+    fontWeight: "bold",
+    fontSize: 20,
+    marginBottom: 5,
   },
 });
 
