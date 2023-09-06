@@ -28,6 +28,8 @@ const IntMedMis = () => {
 
   const data = [{ value: "Chandler, AZ" }, { value: "Maricopa, AZ" }];
 
+  // Grab daily data from the database, store in array, loop through array and calculate the average for that month.
+
   // Changed the year to int(), test tomorrow to see if it works as intended.
   const [currentDate, setCurrentDate] = useState(formattedDate);
   const [requiredDate, setRequiredDate] = useState(false);
