@@ -20,6 +20,7 @@ import LocationButton from "../components/buttons/LocationButton";
 // - Add a Dollars Collected input (required)
 // - Add a Submit Button (required)
 
+// CURRENTLY DATE IN FIREBASE IS SEPERATING INTO 3 FILES. FIX THIS TO ONE DATE!!!
 const IntMedMis = () => {
   const date = new Date();
   const formattedDate = `${
