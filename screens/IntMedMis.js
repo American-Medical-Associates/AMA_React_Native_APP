@@ -38,6 +38,8 @@ const IntMedMis = () => {
   const [requiredProvider, setRequiredProvider] = useState(false);
   const [location, setLocation] = useState("");
   const [requiredLocation, setRequiredLocation] = useState(false);
+  const [numOfPatients, setNumOfPatients] = useState("");
+  const [requiredNumOfPatients, setRequiredNumOfPatients] = useState(false);
 
   return (
     <ScrollView>
@@ -65,7 +67,14 @@ const IntMedMis = () => {
           style={styles.location}
           data={data}
         />
-
+        <InputBox
+          required={true}
+          style={styles.inputBox}
+          width={300}
+          value={numOfPatients}
+          onChangeText={(text) => setNumOfPatients(text)}
+          placeholder={"Number of patients seen?"}
+        />
         <MainButton
           text={"Submit"}
           buttonWidth={250}
@@ -85,6 +94,7 @@ const IntMedMis = () => {
                 currentDate: currentDate,
                 provider: provider,
                 location: location,
+                NumOfPatients: numOfPatients,
               }).then(() => {
                 console.log("Submit Successful!");
               });
