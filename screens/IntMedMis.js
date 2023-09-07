@@ -25,7 +25,7 @@ const IntMedMis = () => {
   const date = new Date();
   const formattedDate = `${
     date.getMonth() + 1
-  }/${date.getDate()}/${date.getFullYear()}`;
+  }-${date.getDate()}-${date.getFullYear()}`;
 
   const data = [{ value: "Chandler, AZ" }, { value: "Maricopa, AZ" }];
 
