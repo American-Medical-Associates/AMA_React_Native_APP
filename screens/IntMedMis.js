@@ -40,6 +40,7 @@ const IntMedMis = () => {
   const [requiredLocation, setRequiredLocation] = useState(false);
   const [numOfPatients, setNumOfPatients] = useState("");
   const [requiredNumOfPatients, setRequiredNumOfPatients] = useState(false);
+  const [numOfNewPatients, setNumOfNewPatients] = useState("");
 
   return (
     <ScrollView>
@@ -67,13 +68,43 @@ const IntMedMis = () => {
           style={styles.location}
           data={data}
         />
+        {/* Change the keyboard type to a number pad so they can only enter numbers */}
+        {/* Add a .trim to filter out any letters, commas, punctuation, etc. */}
         <InputBox
           required={true}
           style={styles.inputBox}
           width={300}
+          keyboardType="numeric"
           value={numOfPatients}
-          onChangeText={(text) => setNumOfPatients(text)}
+          onChangeText={(text) => {
+            if (text === "") {
+              setNumOfPatients(0);
+            } else {
+              const value = parseInt(text, 10);
+              if (!isNaN(value)) {
+                setNumOfPatients(value);
+              }
+            }
+          }}
           placeholder={"Number of patients seen?"}
+        />
+        <InputBox
+          required={true}
+          style={styles.inputBox}
+          width={300}
+          keyboardType="numeric"
+          value={numOfNewPatients}
+          onChangeText={(text) => {
+            if (text === "") {
+              setNumOfNewPatients(0);
+            } else {
+              const value = parseInt(text, 10);
+              if (!isNaN(value)) {
+                setNumOfNewPatients(value);
+              }
+            }
+          }}
+          placeholder={"Number of new patients seen?"}
         />
         <MainButton
           text={"Submit"}
@@ -88,6 +119,9 @@ const IntMedMis = () => {
             } else if (location === "") {
               alert("Please select your location");
               setRequiredLocation(true);
+            } else if (numOfPatients === "") {
+              alert("Please enter the number of patients seen.");
+              setRequiredNumOfPatients(true);
             } else {
               alert("Successful Submission! Thank you!");
               DailyInternalMedMis({
@@ -95,6 +129,7 @@ const IntMedMis = () => {
                 provider: provider,
                 location: location,
                 NumOfPatients: numOfPatients,
+                NumOfNewPatients: numOfNewPatients,
               }).then(() => {
                 console.log("Submit Successful!");
               });
