@@ -20,7 +20,6 @@ import LocationButton from "../components/buttons/LocationButton";
 // - Add a Dollars Collected input (required)
 // - Add a Submit Button (required)
 
-// CURRENTLY DATE IN FIREBASE IS SEPERATING INTO 3 FILES. FIX THIS TO ONE DATE!!!
 const IntMedMis = () => {
   const date = new Date();
   const formattedDate = `${
@@ -31,7 +30,6 @@ const IntMedMis = () => {
 
   // Grab daily data from the database, store in array, loop through array and calculate the average for that month.
 
-  // Changed the year to int(), test tomorrow to see if it works as intended.
   const [currentDate, setCurrentDate] = useState(formattedDate);
   const [requiredDate, setRequiredDate] = useState(false);
   const [provider, setProvider] = useState("");
