@@ -41,6 +41,15 @@ const IntMedMis = () => {
   const [numOfPatients, setNumOfPatients] = useState("");
   const [requiredNumOfPatients, setRequiredNumOfPatients] = useState(false);
   const [numOfNewPatients, setNumOfNewPatients] = useState("");
+  const [requiredNumOfNewPatients, setRequiredNumOfNewPatients] =
+    useState(false);
+  const [numOfTeleVisits, setNumOfTeleVisits] = useState("");
+  const [requiredNumOfTeleVisits, setRequiredNumOfTeleVisits] = useState(false);
+  const [hoursScheduled, setHoursScheduled] = useState("");
+  const [requiredHoursScheduled, setRequiredHoursScheduled] = useState(false);
+  const [refferedBy, setRefferedBy] = useState("");
+  const [numOfInjections, setNumOfInjections] = useState("");
+  const [requiredNumOfInjections, setRequiredNumOfInjections] = useState(false);
 
   return (
     <ScrollView>
@@ -59,7 +68,7 @@ const IntMedMis = () => {
           width={300}
           value={provider}
           onChangeText={(text) => setProvider(text)}
-          placeholder={"Who was the Provider? (Ex: Hailey)"}
+          placeholder={"Who was the Provider? (Ex: Dr. Nadir)"}
         />
         <Text style={styles.locationText}>Select your location</Text>
         <LocationButton
@@ -68,7 +77,6 @@ const IntMedMis = () => {
           style={styles.location}
           data={data}
         />
-        {/* Change the keyboard type to a number pad so they can only enter numbers */}
         {/* Add a .trim to filter out any letters, commas, punctuation, etc. */}
         <InputBox
           required={true}
@@ -106,6 +114,68 @@ const IntMedMis = () => {
           }}
           placeholder={"Number of new patients seen?"}
         />
+        <InputBox
+          required={true}
+          style={styles.inputBox}
+          width={300}
+          keyboardType="numeric"
+          value={numOfTeleVisits}
+          onChangeText={(text) => {
+            if (text === "") {
+              setNumOfTeleVisits(0);
+            } else {
+              const value = parseInt(text, 10);
+              if (!isNaN(value)) {
+                setNumOfTeleVisits(value);
+              }
+            }
+          }}
+          placeholder={"Number of Tele-Visits?"}
+        />
+        <InputBox
+          required={true}
+          style={styles.inputBox}
+          width={300}
+          keyboardType="numeric"
+          value={hoursScheduled}
+          onChangeText={(text) => {
+            if (text === "") {
+              setHoursScheduled(0);
+            } else {
+              const value = parseInt(text, 10);
+              if (!isNaN(value)) {
+                setHoursScheduled(value);
+              }
+            }
+          }}
+          placeholder={"Hours Scheduled"}
+        />
+        <InputBox
+          required={true}
+          style={styles.inputBox}
+          width={300}
+          value={refferedBy}
+          onChangeText={(text) => setRefferedBy(text)}
+          placeholder={"Who were they referred by? (Optional)"}
+        />
+        <InputBox
+          required={true}
+          style={styles.inputBox}
+          width={300}
+          keyboardType="numeric"
+          value={numOfInjections}
+          onChangeText={(text) => {
+            if (text === "") {
+              setNumOfInjections(0);
+            } else {
+              const value = parseInt(text, 10);
+              if (!isNaN(value)) {
+                setNumOfInjections(value);
+              }
+            }
+          }}
+          placeholder={"Number of injections?"}
+        />
         <MainButton
           text={"Submit"}
           buttonWidth={250}
@@ -122,6 +192,23 @@ const IntMedMis = () => {
             } else if (numOfPatients === "") {
               alert("Please enter the number of patients seen.");
               setRequiredNumOfPatients(true);
+            } else if (numOfNewPatients === "") {
+              alert(
+                "Please enter the number of New Patients. If 0 please enter 0."
+              );
+            } else if (numOfTeleVisits === "") {
+              alert(
+                "Please enter the number of Tele-Visits. If 0 please enter 0."
+              );
+              setRequiredNumOfTeleVisits(true);
+            } else if (hoursScheduled === "") {
+              alert("Please enter the hours scheduled. If 0 please enter 0.");
+              setRequiredHoursScheduled(true);
+            } else if (numOfInjections === "") {
+              alert(
+                "Please enter the number of injections. If 0 please enter 0."
+              );
+              setRequiredNumOfInjections(true);
             } else {
               alert("Successful Submission! Thank you!");
               DailyInternalMedMis({
@@ -130,6 +217,10 @@ const IntMedMis = () => {
                 location: location,
                 NumOfPatients: numOfPatients,
                 NumOfNewPatients: numOfNewPatients,
+                NumOfTeleVisits: numOfTeleVisits,
+                HoursScheduled: hoursScheduled,
+                RefferedBy: refferedBy,
+                NumOfInjections: numOfInjections,
               }).then(() => {
                 console.log("Submit Successful!");
               });
