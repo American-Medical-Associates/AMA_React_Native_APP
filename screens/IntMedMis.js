@@ -81,7 +81,7 @@ const IntMedMis = () => {
           style={styles.inputBox}
           width={300}
           keyboardType="numeric"
-          value={numOfPatients}
+          value={numOfPatients.toString()}
           onChangeText={(text) => {
             if (text === "") {
               setNumOfPatients(0);
@@ -99,7 +99,7 @@ const IntMedMis = () => {
           style={styles.inputBox}
           width={300}
           keyboardType="numeric"
-          value={numOfNewPatients}
+          value={numOfNewPatients.toString()}
           onChangeText={(text) => {
             if (text === "") {
               setNumOfNewPatients(0);
@@ -117,7 +117,7 @@ const IntMedMis = () => {
           style={styles.inputBox}
           width={300}
           keyboardType="numeric"
-          value={numOfTeleVisits}
+          value={numOfTeleVisits.toString()}
           onChangeText={(text) => {
             if (text === "") {
               setNumOfTeleVisits(0);
@@ -135,7 +135,7 @@ const IntMedMis = () => {
           style={styles.inputBox}
           width={300}
           keyboardType="numeric"
-          value={hoursScheduled}
+          value={hoursScheduled.toString()}
           onChangeText={(text) => {
             if (text === "") {
               setHoursScheduled(0);
@@ -161,7 +161,7 @@ const IntMedMis = () => {
           style={styles.inputBox}
           width={300}
           keyboardType="numeric"
-          value={numOfInjections}
+          value={numOfInjections.toString()}
           onChangeText={(text) => {
             if (text === "") {
               setNumOfInjections(0);
