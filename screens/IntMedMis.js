@@ -48,6 +48,12 @@ const IntMedMis = () => {
   const [refferedBy, setRefferedBy] = useState("");
   const [numOfInjections, setNumOfInjections] = useState("");
   const [requiredNumOfInjections, setRequiredNumOfInjections] = useState(false);
+  const [numOfTriggerOrJointInjections, setNumOfTriggerOrJointInjections] =
+    useState("");
+  const [
+    requiredNumOfTriggerOrJointInjections,
+    setRequiredNumOfTriggerOrJointInjections,
+  ] = useState(false);
 
   return (
     <ScrollView>
@@ -174,6 +180,24 @@ const IntMedMis = () => {
           }}
           placeholder={"Number of injections?"}
         />
+        <InputBox
+          required={true}
+          style={styles.inputBox}
+          width={300}
+          keyboardType="numeric"
+          value={numOfTriggerOrJointInjections.toString()}
+          onChangeText={(text) => {
+            if (text === "") {
+              setNumOfTriggerOrJointInjections(0);
+            } else {
+              const value = parseInt(text, 10);
+              if (!isNaN(value)) {
+                setNumOfTriggerOrJointInjections(value);
+              }
+            }
+          }}
+          placeholder={"Number of trigger or joint injections?"}
+        />
         <MainButton
           text={"Submit"}
           buttonWidth={250}
@@ -207,6 +231,11 @@ const IntMedMis = () => {
                 "Please enter the number of injections. If 0 please enter 0."
               );
               setRequiredNumOfInjections(true);
+            } else if (numOfTriggerOrJointInjections === "") {
+              alert(
+                "Please enter the number of trigger or joint injections. If 0 please enter 0."
+              );
+              setRequiredNumOfTriggerOrJointInjections(true);
             } else {
               alert("Successful Submission! Thank you!");
               DailyInternalMedMis({
@@ -219,6 +248,7 @@ const IntMedMis = () => {
                 HoursScheduled: hoursScheduled,
                 RefferedBy: refferedBy,
                 NumOfInjections: numOfInjections,
+                NumOfTriggerOrJointInjections: numOfTriggerOrJointInjections,
               }).then(() => {
                 console.log("Submit Successful!");
               });
