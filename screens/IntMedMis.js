@@ -54,6 +54,8 @@ const IntMedMis = () => {
     requiredNumOfTriggerOrJointInjections,
     setRequiredNumOfTriggerOrJointInjections,
   ] = useState(false);
+  const [numOfNewSignUp, setNumOfNewSignUp] = useState("");
+  const [requiredNumOfNewSignUp, setRequiredNumOfNewSignUp] = useState(false);
 
   return (
     <ScrollView>
@@ -198,8 +200,27 @@ const IntMedMis = () => {
           }}
           placeholder={"Number of trigger or joint injections?"}
         />
+        <InputBox
+          required={true}
+          style={styles.inputBox}
+          width={300}
+          keyboardType="numeric"
+          value={numOfNewSignUp.toString()}
+          onChangeText={(text) => {
+            if (text === "") {
+              setNumOfNewSignUp(0);
+            } else {
+              const value = parseInt(text, 10);
+              if (!isNaN(value)) {
+                setNumOfNewSignUp(value);
+              }
+            }
+          }}
+          placeholder={"Number of new sign ups?"}
+        />
         <MainButton
           text={"Submit"}
+          style={styles.MainButton}
           buttonWidth={250}
           onPress={() => {
             if (currentDate === "") {
@@ -236,6 +257,11 @@ const IntMedMis = () => {
                 "Please enter the number of trigger or joint injections. If 0 please enter 0."
               );
               setRequiredNumOfTriggerOrJointInjections(true);
+            } else if (numOfNewSignUp === "") {
+              alert(
+                "Please enter number of new sign ups. If 0 please enter 0."
+              );
+              setRequiredNumOfNewSignUp(true);
             } else {
               alert("Successful Submission! Thank you!");
               DailyInternalMedMis({
@@ -249,6 +275,7 @@ const IntMedMis = () => {
                 RefferedBy: refferedBy,
                 NumOfInjections: numOfInjections,
                 NumOfTriggerOrJointInjections: numOfTriggerOrJointInjections,
+                NumOfNewSignUp: numOfNewSignUp,
               }).then(() => {
                 console.log("Submit Successful!");
               });
@@ -275,6 +302,9 @@ const styles = StyleSheet.create({
     fontWeight: "bold",
     fontSize: 20,
     marginBottom: 5,
+  },
+  MainButton: {
+    marginBottom: 20,
   },
 });
 
