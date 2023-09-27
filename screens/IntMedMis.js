@@ -56,6 +56,12 @@ const IntMedMis = () => {
   ] = useState(false);
   const [numOfNewSignUp, setNumOfNewSignUp] = useState("");
   const [requiredNumOfNewSignUp, setRequiredNumOfNewSignUp] = useState(false);
+  const [numOfPatientsContacted, setNumOfPatientsContacted] = useState("");
+  const [requiredNumOfPatientsContacted, setRequiredNumOfPatientsContacted] =
+    useState(false);
+  const [dollarsCollected, setDollarsCollected] = useState("");
+  const [requiredDollarsCollected, setRequiredDollarsCollected] =
+    useState(false);
 
   return (
     <ScrollView>
@@ -83,7 +89,6 @@ const IntMedMis = () => {
           style={styles.location}
           data={data}
         />
-        {/* Add a .trim to filter out any letters, commas, punctuation, etc. */}
         <InputBox
           required={true}
           style={styles.inputBox}
@@ -218,6 +223,42 @@ const IntMedMis = () => {
           }}
           placeholder={"Number of new sign ups?"}
         />
+        <InputBox
+          required={true}
+          style={styles.inputBox}
+          width={300}
+          keyboardType="numeric"
+          value={numOfPatientsContacted.toString()}
+          onChangeText={(text) => {
+            if (text === "") {
+              setNumOfPatientsContacted(0);
+            } else {
+              const value = parseInt(text, 10);
+              if (!isNaN(value)) {
+                setNumOfPatientsContacted(value);
+              }
+            }
+          }}
+          placeholder={"Number of patients contacted?"}
+        />
+        <InputBox
+          required={true}
+          style={styles.inputBox}
+          width={300}
+          keyboardType="numeric"
+          value={dollarsCollected.toString()}
+          onChangeText={(text) => {
+            if (text === "") {
+              setDollarsCollected(0);
+            } else {
+              const value = parseInt(text, 10);
+              if (!isNaN(value)) {
+                setDollarsCollected(value);
+              }
+            }
+          }}
+          placeholder={"Dollars collected?"}
+        />
         <MainButton
           text={"Submit"}
           style={styles.MainButton}
@@ -262,6 +303,15 @@ const IntMedMis = () => {
                 "Please enter number of new sign ups. If 0 please enter 0."
               );
               setRequiredNumOfNewSignUp(true);
+            } else if (numOfPatientsContacted === "") {
+              alert(
+                "Please enter number of new sign ups. If 0 please enter 0."
+              );
+              setRequiredNumOfPatientsContacted(true);
+            } else if (dollarsCollected === "") {
+              alert(
+                "Please enter the amount of dollars collected. If 0 please enter 0."
+              );
             } else {
               alert("Successful Submission! Thank you!");
               DailyInternalMedMis({
@@ -276,6 +326,8 @@ const IntMedMis = () => {
                 NumOfInjections: numOfInjections,
                 NumOfTriggerOrJointInjections: numOfTriggerOrJointInjections,
                 NumOfNewSignUp: numOfNewSignUp,
+                NumOfPatientsContacted: numOfPatientsContacted,
+                DollarsCollected: dollarsCollected,
               }).then(() => {
                 console.log("Submit Successful!");
               });
