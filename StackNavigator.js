@@ -23,6 +23,8 @@ import { createStackNavigator } from "@react-navigation/stack";
 import AllGiftCards from "./screens/AllGiftCards";
 import IntMedMis from "./screens/IntMedMis";
 import { styleProps } from "react-native-web/dist/cjs/modules/forwardedProps";
+import MisAverages from "./screens/MisAverages";
+
 const Stack = createNativeStackNavigator();
 const Drawer = createDrawerNavigator();
 const BarcodeStack = createStackNavigator();
@@ -108,8 +110,8 @@ function DrawerNavigator() {
         name="VMS MIS"
         component={MISscreen}
       />
+      <Drawer.Screen name="MIS Averages" component={MisAverages} />
       <Drawer.Screen name="Internal Medicine MIS" component={IntMedMis} />
-      {/* <Drawer.Screen name="Patients" component={Patients} /> */}
       <Drawer.Screen name="Checkout" component={Checkout} />
     </Drawer.Navigator>
   );

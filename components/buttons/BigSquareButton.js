@@ -5,9 +5,9 @@ const BigSquareButton = ({ buttonText, onPress }) => {
   return (
     <TouchableOpacity
       style={{
-        backgroundColor: "#EEEEEE",
+        backgroundColor: "#0008ff",
         width: Dimensions.get("window").width / 2,
-        height: 150,
+        height: 100,
         borderRadius: 20,
         justifyContent: "center",
         alignItems: "center",
@@ -23,7 +23,18 @@ const BigSquareButton = ({ buttonText, onPress }) => {
       }}
       onPress={onPress}
     >
-      <Text style={{ textAlign: "center", fontSize: 20 }}>{buttonText}</Text>
+      <Text
+        style={{
+          textAlign: "center",
+          fontSize: 20,
+          color: "white",
+          fontWeight: "bold",
+          paddingLeft: 20,
+          paddingRight: 20,
+        }}
+      >
+        {buttonText}
+      </Text>
     </TouchableOpacity>
   );
 };

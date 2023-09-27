@@ -5,21 +5,6 @@ import { DailyInternalMedMis } from "../firebase";
 import MainButton from "../components/buttons/MainButton";
 import LocationButton from "../components/buttons/LocationButton";
 
-//TODO:
-// - Outfill input for current date, allow user to change date if needed. Auto format
-// - Add a Location scroll wheel listing Chandler AZ, & Maricopa AZ (required)
-// - Add a Num of Patients input (required)
-// - Add a Num of New Patients input (required)
-// - Add a Num of Tele Visits input (required)
-// - Add a Hours Scheduled input (required)
-// - Add a Reffered By input (Optional)
-// - Add a Num of Injections input (required)
-// - Add a Num of Trigger or Joint Injections input (required)
-// - Add a Num of New Sign ups input (required)
-// - Add Num of Patients Contacted input (required)
-// - Add a Dollars Collected input (required)
-// - Add a Submit Button (required)
-
 const IntMedMis = () => {
   const date = new Date();
   const formattedDate = `${
@@ -27,8 +12,6 @@ const IntMedMis = () => {
   }-${date.getDate()}-${date.getFullYear()}`;
 
   const data = [{ value: "Chandler, AZ" }, { value: "Maricopa, AZ" }];
-
-  // Grab daily data from the database, store in array, loop through array and calculate the average for that month.
 
   const [currentDate, setCurrentDate] = useState(formattedDate);
   const [requiredDate, setRequiredDate] = useState(false);
