@@ -14,6 +14,8 @@ const MisAverages = () => {
     <View style={styles.outerContainer}>
       <ScrollView contentContainerStyle={styles.scrollContainer}>
         <View style={styles.container}>
+          {/* Add a router.push to the button and push it to a seperate page 
+          where all the averages are calculated for that specific MIS. (IE: IM MIS avereages = only MIS averages.) */}
           <BigSquareButton
             style={styles.buttonDropDown}
             buttonText={"Internal Medicine MIS"}
