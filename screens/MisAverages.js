@@ -4,11 +4,7 @@ import BigSquareButton from "../components/buttons/BigSquareButton";
 import { useNavigation } from "@react-navigation/native";
 
 // TODO:
-// - Grab data from all MIS sections.
-// - Show the total number for each department
-// - Add all the data together per quarter and display it
-// - Calculate averages for each deptartment and all depertments combind.
-// - onClick of button that when clicked a drop down will appear showing all the averages for that department.
+// Create each departments MIS button that routes to a seperate page with all the info on it.
 
 const MisAverages = () => {
   const navigation = useNavigation();
@@ -17,8 +13,6 @@ const MisAverages = () => {
     <View style={styles.outerContainer}>
       <ScrollView contentContainerStyle={styles.scrollContainer}>
         <View style={styles.container}>
-          {/* Add a router.push to the button and push it to a seperate page 
-          where all the averages are calculated for that specific MIS. (IE: IM MIS avereages = only MIS averages.) */}
           <BigSquareButton
             style={styles.buttonDropDown}
             buttonText={"Internal Medicine MIS"}
