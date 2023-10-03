@@ -1,7 +1,12 @@
 import React from "react";
+import { Text, View } from "react-native";
 
 function IMAverages() {
-  return <View></View>;
+  return (
+    <View>
+      <Text>Hello, World!</Text>
+    </View>
+  );
 }
 
 export default IMAverages;

@@ -1,6 +1,7 @@
 import React from "react";
 import { ScrollView, View, Text, StyleSheet } from "react-native";
 import BigSquareButton from "../components/buttons/BigSquareButton";
+import { useNavigation } from "@react-navigation/native";
 
 // TODO:
 // - Grab data from all MIS sections.
@@ -10,6 +11,8 @@ import BigSquareButton from "../components/buttons/BigSquareButton";
 // - onClick of button that when clicked a drop down will appear showing all the averages for that department.
 
 const MisAverages = () => {
+  const navigation = useNavigation();
+
   return (
     <View style={styles.outerContainer}>
       <ScrollView contentContainerStyle={styles.scrollContainer}>
@@ -19,6 +22,7 @@ const MisAverages = () => {
           <BigSquareButton
             style={styles.buttonDropDown}
             buttonText={"Internal Medicine MIS"}
+            onPress={() => navigation.navigate("Internal Medicine Averages")}
           />
         </View>
       </ScrollView>

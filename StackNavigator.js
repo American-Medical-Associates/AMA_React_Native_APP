@@ -24,6 +24,7 @@ import AllGiftCards from "./screens/AllGiftCards";
 import IntMedMis from "./screens/IntMedMis";
 import { styleProps } from "react-native-web/dist/cjs/modules/forwardedProps";
 import MisAverages from "./screens/MisAverages";
+import IMAverages from "./screens/IMAverages";
 
 const Stack = createNativeStackNavigator();
 const Drawer = createDrawerNavigator();
@@ -88,6 +89,11 @@ const StackNavigator = () => {
           name="Gift Cards"
           options={{ headerShown: true }}
           component={AllGiftCards}
+        />
+        <Stack.Screen
+          name="Internal Medicine Averages"
+          options={{ headerShown: true }}
+          component={IMAverages}
         />
       </Stack.Navigator>
     </NavigationContainer>
