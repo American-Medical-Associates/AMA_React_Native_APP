@@ -1,4 +1,4 @@
-import react from "react";
+import React from "react";
 import StackNavigator from "./StackNavigator";
 import { Provider } from "react-redux";
 import { store } from "./store";
