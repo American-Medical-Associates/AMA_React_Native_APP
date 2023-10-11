@@ -27,7 +27,7 @@
     "expo-haptics": "~12.4.0",
     "expo-notifications": "~0.20.1",
     "expo-status-bar": "~1.6.0",
-    "expo-updates": "~0.18.14",
+    "expo-updates": "~0.18.16",
     "firebase": "10.4.0",
     "firestore": "^1.1.6",
     "react": "18.2.0",
