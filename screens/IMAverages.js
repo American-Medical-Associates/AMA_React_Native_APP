@@ -54,7 +54,6 @@ function IMAverages() {
           <Text style={[styles.text, styles.centeredText, styles.currentDate]}>
             {item.currentDate}
           </Text>
-          {/* Add more fields as needed with appropriate styles */}
           <Text style={styles.text}>Location: {item.location}</Text>
           <Text style={styles.text}>
             Number of Patients: {item.NumOfPatients}
