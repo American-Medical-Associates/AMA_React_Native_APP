@@ -1,16 +1,11 @@
 import React, { useState, useEffect } from "react";
-import {
-  Text,
-  View,
-  ActivityIndicator,
-  StyleSheet,
-  ScrollView,
-} from "react-native";
+import { Text, View, ActivityIndicator, ScrollView } from "react-native";
 import { db } from "../firebase";
-import { collection, query, where, getDocs } from "firebase/firestore";
+import { collection, query, getDocs } from "firebase/firestore";
 import { useScrollToTop } from "@react-navigation/native";
+import { styles } from "./IMAverages";
 
-function IMAverages() {
+export function IMAverages() {
   const [loading, setLoading] = useState(true);
   const [data, setData] = useState([]);
   const ref = React.useRef(null);
@@ -45,7 +40,6 @@ function IMAverages() {
   }
 
   return (
-    // Make this into a flatlist for better performance
     <ScrollView ref={ref} contentContainerStyle={styles.container}>
       {data.map((item, index) => (
         <View key={index} style={styles.item}>
@@ -87,48 +81,3 @@ function IMAverages() {
     </ScrollView>
   );
 }
-
-const styles = StyleSheet.create({
-  // Add color to the numbers only for better visability.
-  container: {
-    flexGrow: 1,
-    justifyContent: "center",
-    alignItems: "center",
-    padding: 16,
-  },
-  item: {
-    backgroundColor: "white",
-    borderRadius: 5,
-    padding: 20,
-    marginVertical: 8,
-    marginHorizontal: 16,
-    width: "90%", // or fixed width
-    shadowColor: "#000",
-    shadowOffset: {
-      width: 0,
-      height: 2,
-    },
-    shadowOpacity: 0.25,
-    shadowRadius: 3.84,
-    elevation: 5,
-    justifyContent: "center",
-    alignContent: "center",
-  },
-  text: {
-    fontSize: 16,
-    color: "black",
-  },
-  loader: {
-    flex: 1,
-    justifyContent: "center",
-    alignItems: "center",
-  },
-  centeredText: {
-    textAlign: "center",
-  },
-  currentDate: {
-    marginBottom: 20,
-  },
-});
-
-export default IMAverages;
