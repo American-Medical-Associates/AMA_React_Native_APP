@@ -13,14 +13,5 @@
    "production": {
       "channel": "master"
     }
-  },
-  "submit": {
-    "production": {
-      "ios":{
-        "appleId":"zachrizzo@icloud.com",
-        "ascAppId":"1621590575",
-        "appleTeamId":"PY886R2W36"
-      }
-    }
   }
 }
