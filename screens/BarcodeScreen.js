@@ -32,6 +32,7 @@ import { AntDesign } from "@expo/vector-icons";
 // import {
 //   addExisitingItemToDb,
 //   AddNewItemToDb,
+//   auth,
 //   db,
 //   DeleteItemOnDB,
 //   GetProducts,
@@ -52,7 +53,6 @@ import CompanyButton from "../components/buttons/CompanyPickerButton";
 import InputBox from "../components/InputBox";
 import { async } from "@firebase/util";
 import SettingsButton from "../components/buttons/SettingsButton";
-
 const BarcodeScreen = () => {
   const [hasPermission, setHasPermission] = useState(null);
   const [scanned, setScanned] = useState(true);
