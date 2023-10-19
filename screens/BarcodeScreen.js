@@ -29,15 +29,14 @@ import {
 import { BarCodeScanner } from "expo-barcode-scanner";
 import { AntDesign } from "@expo/vector-icons";
 // import AnitmatedCustomList from "../components/AnitmatedCustomList";
-import {
-  addExisitingItemToDb,
-  AddNewItemToDb,
-  auth,
-  db,
-  DeleteItemOnDB,
-  GetProducts,
-  UseExistingItemOnDb,
-} from "../firebase";
+// import {
+//   addExisitingItemToDb,
+//   AddNewItemToDb,
+//   db,
+//   DeleteItemOnDB,
+//   GetProducts,
+//   UseExistingItemOnDb,
+// } from "../firebase";
 import { collection, addDoc, setDoc, doc } from "firebase/firestore";
 import MainButton from "../components/buttons/MainButton";
 import DividerLine from "../components/DividerLine";
@@ -53,6 +52,7 @@ import CompanyButton from "../components/buttons/CompanyPickerButton";
 import InputBox from "../components/InputBox";
 import { async } from "@firebase/util";
 import SettingsButton from "../components/buttons/SettingsButton";
+
 const BarcodeScreen = () => {
   const [hasPermission, setHasPermission] = useState(null);
   const [scanned, setScanned] = useState(true);
