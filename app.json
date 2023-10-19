@@ -13,7 +13,7 @@
     },
     "updates": {
       "fallbackToCacheTimeout": 0,
-      "url": "https://u.expo.dev/bad11e83-7587-4cbb-8b9c-01b65156c06b"
+      "updateUrl": "https://u.expo.dev/bad11e83-7587-4cbb-8b9c-01b65156c06b"
     },
     "assetBundlePatterns": [
       "**/*"
