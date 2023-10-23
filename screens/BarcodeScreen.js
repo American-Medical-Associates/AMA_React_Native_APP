@@ -29,15 +29,15 @@ import {
 import { BarCodeScanner } from "expo-barcode-scanner";
 import { AntDesign } from "@expo/vector-icons";
 // import AnitmatedCustomList from "../components/AnitmatedCustomList";
-// import {
-//   addExisitingItemToDb,
-//   AddNewItemToDb,
-//   auth,
-//   db,
-//   DeleteItemOnDB,
-//   GetProducts,
-//   UseExistingItemOnDb,
-// } from "../firebase";
+import {
+  addExisitingItemToDb,
+  AddNewItemToDb,
+  auth,
+  db,
+  DeleteItemOnDB,
+  GetProducts,
+  UseExistingItemOnDb,
+} from "../firebase";
 import { collection, addDoc, setDoc, doc } from "firebase/firestore";
 import MainButton from "../components/buttons/MainButton";
 import DividerLine from "../components/DividerLine";
