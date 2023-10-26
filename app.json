@@ -20,8 +20,7 @@
     ],
     "ios": {
       "supportsTablet": true,
-      "bundleIdentifier": "americanmedicalassociatesaz",
-      "buildNumber": "1.12.4"
+      "bundleIdentifier": "americanmedicalassociatesaz"
     },
     "android": {
       "adaptiveIcon": {
