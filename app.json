@@ -33,7 +33,7 @@
       "favicon": "./assets/favicon.png"
     },
     "runtimeVersion": {
-      "policy": "sdkVersion"
+      "policy": "appVersion"
     },
     "extra": {
       "eas": {
