@@ -29,7 +29,7 @@
     "expo-notifications": "~0.20.1",
     "expo-splash-screen": "~0.20.5",
     "expo-status-bar": "~1.6.0",
-    "expo-updates": "~0.18.16",
+    "expo-updates": "~0.18.17",
     "firebase": "^10.5.0",
     "firestore": "^1.1.6",
     "lodash": "^4.17.21",
