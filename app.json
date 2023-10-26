@@ -2,7 +2,7 @@
   "expo": {
     "name": "American Medical Associates",
     "slug": "American_Medical_Associates",
-    "version": "1.12.4",
+    "version": "1.12.3",
     "orientation": "portrait",
     "icon": "./assets/icon.png",
     "owner": "american_medical_associates",
@@ -33,7 +33,7 @@
       "favicon": "./assets/favicon.png"
     },
     "runtimeVersion": {
-      "policy": "1.0.0"
+      "policy": "sdkVersion"
     },
     "extra": {
       "eas": {
