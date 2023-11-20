@@ -1,44 +1,17 @@
-// THIS IS THE CLEANED UP CODE FROM CHAT GPT 3.5
-import React from "react";
-import { StyleSheet, View } from "react-native";
+import React from 'react';
+import { View } from 'react-native';
 
-export default function DividerLine({ lineColor, lineWidth }) {
+const DividerLine = () => {
   return (
-    <View style={styles.container}>
-      <View
-        style={[styles.line, { backgroundColor: lineColor, width: lineWidth }]}
-      />
-    </View>
+    <View style={{
+      height: 5, // Thin line
+      backgroundColor: '#0008ff', // Light gray color
+      width: '100%',
+      marginVertical: 10, // Add some vertical margin for spacing
+      borderRadius: 10
+      // You can add other styles as needed
+    }} />
   );
-}
+};
 
-const styles = StyleSheet.create({
-  container: {
-    alignItems: "center",
-    marginBottom: 10,
-  },
-  line: {
-    height: 6,
-    borderRadius: 50,
-  },
-});
-
-// THIS IS THE ORIGINAL CODE FOR THE DIVIDER LINE COMPONENT
-
-// import React from "react";
-// import { StyleSheet, Text, View, TouchableOpacity } from "react-native";
-
-// export default function DividerLine({ lineColor, lineWidth }) {
-//   return (
-//     <View style={{ alignItems: "center", marginBottom: 10 }}>
-//       <View
-//         style={{
-//           backgroundColor: lineColor,
-//           width: lineWidth,
-//           height: 6,
-//           borderRadius: 50,
-//         }}
-//       />
-//     </View>
-//   );
-// }
+export default DividerLine;
