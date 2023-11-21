@@ -8,7 +8,6 @@ import {
 } from "react-native";
 import { db } from "../firebase";
 import { collection, query, getDocs } from "firebase/firestore";
-import DividerLine from "../components/DividerLine";
 
 function IMAverages() {
   const [loading, setLoading] = useState(true);
@@ -94,32 +93,31 @@ function IMAverages() {
   }, []);
 
   const renderHeader = () => (
-    <View>
-      <Text style={styles.headerText}>Previous Month's Averages</Text>
-      <Text>Number of Patients: {data.averages.NumOfPatients?.toFixed(2)}</Text>
-      <Text>Number of New Patients: {data.averages.NumOfNewPatients?.toFixed(2)}</Text>
-      <Text>Number of TeleVisits: {data.averages.NumOfTeleVisits?.toFixed(2)}</Text>
-      <Text>Hours Scheduled: {data.averages.HoursScheduled?.toFixed(2)}</Text>
-      <Text>Number of Trigger or Joint Injections: {data.averages.NumOfTriggerOrJointInjections?.toFixed(2)}</Text>
-      <Text>Number of New Sign Ups: {data.averages.NumOfNewSignUp?.toFixed(2)}</Text>
-      <Text>Number of Patients Contacted: {data.averages.NumOfPatientsContacted?.toFixed(2)}</Text>
-      <Text>No Shows: {data.averages.NoShows?.toFixed(2)}</Text>
-      <Text>EKG: {data.averages.EKG?.toFixed(2)}</Text>
-      <Text>SkinTagRemovals: {data.averages.SkinTagRemovals?.toFixed(2)}</Text>
-      <Text>No Show Front Desk Collections: {data.averages.NoShowFDCollections?.toFixed(2)}</Text>
-      <Text>Paps: {data.averages.Paps?.toFixed(2)}</Text>
-      <Text>Annual Physicals: {data.averages.AnnualPhysicals?.toFixed(2)}</Text>
-      <Text>Psychiatric Services: {data.averages.PsychiatricServices?.toFixed(2)}</Text>
-      <Text>Counseling: {data.averages.Counseling?.toFixed(2)}</Text>
-      <Text>Chronic Care Management: {data.averages.ChronicCareManagement?.toFixed(2)}</Text>
-      <Text>Weight Loss: {data.averages.WeightLoss?.toFixed(2)}</Text>
-      <Text>Ivy Infusions: {data.averages.IvyInfusions?.toFixed(2)}</Text>
-      <Text>Hormone Replacement Therapies: {data.averages.HormoneReplacementTherapy?.toFixed(2)}</Text>
-      <Text>Aesthetic Treatments: {data.averages.AestheticTreatments?.toFixed(2)}</Text>
-      <Text>Level Coding: {data.averages.LevelCoding?.toFixed(2)}</Text>
-      <Text>Number of CCM Patients Contacted: {data.averages.CcmNumberOfPatientsContacted?.toFixed(2)}</Text>
-      <Text>Dollars Collected: {data.averages.DollarsCollected?.toFixed(2)}</Text>
-      <DividerLine />
+    <View style={styles.header}>
+      <Text style={styles.headerTitle}>Previous Month's Averages</Text>
+      <Text style={styles.headerText}>Number of New Patients: {data.averages.NumOfNewPatients?.toFixed(2)}</Text>
+      <Text style={styles.headerText}>Number of Patients: {data.averages.NumOfPatients?.toFixed(2)}</Text>
+      <Text style={styles.headerText}>Number of TeleVisits: {data.averages.NumOfTeleVisits?.toFixed(2)}</Text>
+      <Text style={styles.headerText}>Hours Scheduled: {data.averages.HoursScheduled?.toFixed(2)}</Text>
+      <Text style={styles.headerText}>Number of Trigger or Joint Injections: {data.averages.NumOfTriggerOrJointInjections?.toFixed(2)}</Text>
+      <Text style={styles.headerText}>Number of New Sign Ups: {data.averages.NumOfNewSignUp?.toFixed(2)}</Text>
+      <Text style={styles.headerText}>Number of Patients Contacted: {data.averages.NumOfPatientsContacted?.toFixed(2)}</Text>
+      <Text style={styles.headerText}>No Shows: {data.averages.NoShows?.toFixed(2)}</Text>
+      <Text style={styles.headerText}>EKG: {data.averages.EKG?.toFixed(2)}</Text>
+      <Text style={styles.headerText}>SkinTagRemovals: {data.averages.SkinTagRemovals?.toFixed(2)}</Text>
+      <Text style={styles.headerText}>No Show Front Desk Collections: {data.averages.NoShowFDCollections?.toFixed(2)}</Text>
+      <Text style={styles.headerText}>Paps: {data.averages.Paps?.toFixed(2)}</Text>
+      <Text style={styles.headerText}>Annual Physicals: {data.averages.AnnualPhysicals?.toFixed(2)}</Text>
+      <Text style={styles.headerText}>Psychiatric Services: {data.averages.PsychiatricServices?.toFixed(2)}</Text>
+      <Text style={styles.headerText}>Counseling: {data.averages.Counseling?.toFixed(2)}</Text>
+      <Text style={styles.headerText}>Chronic Care Management: {data.averages.ChronicCareManagement?.toFixed(2)}</Text>
+      <Text style={styles.headerText}>Weight Loss: {data.averages.WeightLoss?.toFixed(2)}</Text>
+      <Text style={styles.headerText}>Ivy Infusions: {data.averages.IvyInfusions?.toFixed(2)}</Text>
+      <Text style={styles.headerText}>Hormone Replacement Therapies: {data.averages.HormoneReplacementTherapy?.toFixed(2)}</Text>
+      <Text style={styles.headerText}>Aesthetic Treatments: {data.averages.AestheticTreatments?.toFixed(2)}</Text>
+      <Text style={styles.headerText}>Level Coding: {data.averages.LevelCoding?.toFixed(2)}</Text>
+      <Text style={styles.headerText}>Number of CCM Patients Contacted: {data.averages.CcmNumberOfPatientsContacted?.toFixed(2)}</Text>
+      <Text style={styles.headerText}>Dollars Collected: {data.averages.DollarsCollected?.toFixed(2)}</Text>
     </View>
   );
 
@@ -209,6 +207,22 @@ const styles = StyleSheet.create({
     alignItems: "center",
     padding: 16,
   },
+  header: {
+    backgroundColor: "#0008ff",
+    borderRadius: 5,
+    padding: 20,
+    marginVertical: 8,
+    shadowColor: "#000",
+    shadowOffset: {
+      width: 0,
+      height: 2,
+    },
+    shadowOpacity: 0.25,
+    shadowRadius: 3.84,
+    elevation: 5,
+    justifyContent: "center",
+    alignContent: "center",
+  },
   item: {
     backgroundColor: "white",
     borderRadius: 5,
@@ -243,10 +257,16 @@ const styles = StyleSheet.create({
     marginBottom: 20,
   },
   headerText: {
+    color: "white",
+    fontSize: 15
+  },
+  headerTitle: {
     fontSize: 18,
     fontWeight: "bold",
     padding: 10,
-  },
+    color: "white",
+    textAlign: "center"
+  }
 });
 
 export default IMAverages;
